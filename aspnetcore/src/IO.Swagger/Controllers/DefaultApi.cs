@@ -126,7 +126,7 @@ namespace IO.Swagger.Controllers
             // return StatusCode(500, default(InternalServerError));
 
             string exampleJson = null;
-            exampleJson = "{\n  \"ContactEmailUsage\" : [ {\n    \"UpdatedBy\" : 4001304,\n    \"Id\" : 1,\n    \"LastUpdated\" : \"2019-02-01 00:00:00\",\n    \"EmailAddress\" : \"gielisg@selectsoftware.com.au\",\n    \"FromDateTime\" : \"2019-02-01 00:00:00\",\n    \"EmailTypes\" : [ {\n      \"Code\" : \"HP\",\n      \"Name\" : \"Home Email\"\n    }, {\n      \"Code\" : \"HP\",\n      \"Name\" : \"Home Email\"\n    } ]\n  }, {\n    \"UpdatedBy\" : 4001304,\n    \"Id\" : 1,\n    \"LastUpdated\" : \"2019-02-01 00:00:00\",\n    \"EmailAddress\" : \"gielisg@selectsoftware.com.au\",\n    \"FromDateTime\" : \"2019-02-01 00:00:00\",\n    \"EmailTypes\" : [ {\n      \"Code\" : \"HP\",\n      \"Name\" : \"Home Email\"\n    }, {\n      \"Code\" : \"HP\",\n      \"Name\" : \"Home Email\"\n    } ]\n  } ],\n  \"ContactEmailTypes\" : [ {\n    \"Code\" : \"HP\",\n    \"Name\" : \"Home Email\"\n  }, {\n    \"Code\" : \"HP\",\n    \"Name\" : \"Home Email\"\n  } ],\n  \"ContactEmailMandatoryRules\" : [ {\n    \"Type\" : \"Home Email\",\n    \"TypeCode\" : \"HE\"\n  }, {\n    \"Type\" : \"Home Email\",\n    \"TypeCode\" : \"HE\"\n  } ]\n}";
+            exampleJson = "{\n  \"ContactEmailUsage\" : [ {\n    \"UpdatedBy\" : 4001304,\n    \"Id\" : 1,\n    \"LastUpdated\" : \"2019-02-01 00:00:00\",\n    \"EmailAddress\" : \"gielisg@selectsoftware.com.au\",\n    \"FromDateTime\" : \"2019-02-01 00:00:00\",\n    \"EmailTypes\" : [ {\n      \"Code\" : \"HE\",\n      \"Name\" : \"Home Email\"\n    }, {\n      \"Code\" : \"HE\",\n      \"Name\" : \"Home Email\"\n    } ]\n  }, {\n    \"UpdatedBy\" : 4001304,\n    \"Id\" : 1,\n    \"LastUpdated\" : \"2019-02-01 00:00:00\",\n    \"EmailAddress\" : \"gielisg@selectsoftware.com.au\",\n    \"FromDateTime\" : \"2019-02-01 00:00:00\",\n    \"EmailTypes\" : [ {\n      \"Code\" : \"HE\",\n      \"Name\" : \"Home Email\"\n    }, {\n      \"Code\" : \"HE\",\n      \"Name\" : \"Home Email\"\n    } ]\n  } ],\n  \"ContactEmailTypes\" : [ {\n    \"Code\" : \"HE\",\n    \"Name\" : \"Home Email\"\n  }, {\n    \"Code\" : \"HE\",\n    \"Name\" : \"Home Email\"\n  } ],\n  \"ContactEmailMandatoryRules\" : [ {\n    \"Type\" : \"Home Email\",\n    \"TypeCode\" : \"HE\"\n  }, {\n    \"Type\" : \"Home Email\",\n    \"TypeCode\" : \"HE\"\n  } ]\n}";
             exampleJson = "<null>\n</null>";
             
             var example = exampleJson != null
@@ -179,8 +179,8 @@ namespace IO.Swagger.Controllers
             // return StatusCode(500, default(InternalServerError));
 
             string exampleJson = null;
-            exampleJson = "[ {\n  \"UpdatedBy\" : 4001304,\n  \"EmailType\" : \"Mobile\",\n  \"Id\" : 1,\n  \"ToDateTime\" : \"2019-04-01 00:00:00\",\n  \"EmailTypeCode\" : \"HP\",\n  \"EmailAddress\" : \"gielisg@selectsoftware.com.au\",\n  \"FromDateTime\" : \"2019-02-01 00:00:00\"\n}, {\n  \"UpdatedBy\" : 4001304,\n  \"EmailType\" : \"Mobile\",\n  \"Id\" : 1,\n  \"ToDateTime\" : \"2019-04-01 00:00:00\",\n  \"EmailTypeCode\" : \"HP\",\n  \"EmailAddress\" : \"gielisg@selectsoftware.com.au\",\n  \"FromDateTime\" : \"2019-02-01 00:00:00\"\n} ]";
-            exampleJson = "<null>\n  <Id>1</Id>\n  <EmailTypeCode>HP</EmailTypeCode>\n  <EmailType>Mobile</EmailType>\n  <EmailAddress>gielisg@selectsoftware.com.au</EmailAddress>\n</null>";
+            exampleJson = "[ {\n  \"UpdatedBy\" : 4001304,\n  \"EmailType\" : \"Mobile\",\n  \"Id\" : 1,\n  \"ToDateTime\" : \"2019-04-01 00:00:00\",\n  \"EmailTypeCode\" : \"HE\",\n  \"EmailAddress\" : \"gielisg@selectsoftware.com.au\",\n  \"FromDateTime\" : \"2019-02-01 00:00:00\"\n}, {\n  \"UpdatedBy\" : 4001304,\n  \"EmailType\" : \"Mobile\",\n  \"Id\" : 1,\n  \"ToDateTime\" : \"2019-04-01 00:00:00\",\n  \"EmailTypeCode\" : \"HE\",\n  \"EmailAddress\" : \"gielisg@selectsoftware.com.au\",\n  \"FromDateTime\" : \"2019-02-01 00:00:00\"\n} ]";
+            exampleJson = "<null>\n  <Id>1</Id>\n  <EmailTypeCode>HE</EmailTypeCode>\n  <EmailType>Mobile</EmailType>\n  <EmailAddress>gielisg@selectsoftware.com.au</EmailAddress>\n</null>";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<List<ContactEmailHistory>>(exampleJson)
@@ -284,8 +284,8 @@ namespace IO.Swagger.Controllers
             // return StatusCode(500, default(InternalServerError));
 
             string exampleJson = null;
-            exampleJson = "[ {\n  \"Code\" : \"HP\",\n  \"Name\" : \"Home Email\"\n}, {\n  \"Code\" : \"HP\",\n  \"Name\" : \"Home Email\"\n} ]";
-            exampleJson = "<null>\n  <Code>HP</Code>\n  <Name>Home Email</Name>\n</null>";
+            exampleJson = "[ {\n  \"Code\" : \"HE\",\n  \"Name\" : \"Home Email\"\n}, {\n  \"Code\" : \"HE\",\n  \"Name\" : \"Home Email\"\n} ]";
+            exampleJson = "<null>\n  <Code>HE</Code>\n  <Name>Home Email</Name>\n</null>";
             
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<List<ContactEmailType>>(exampleJson)

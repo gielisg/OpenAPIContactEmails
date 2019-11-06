@@ -336,7 +336,7 @@
       "properties" : {
         "Code" : {
           "type" : "string",
-          "example" : "HP",
+          "example" : "HE",
           "maxLength" : 2
         },
         "Name" : {
@@ -346,7 +346,7 @@
         }
       },
       "example" : {
-        "Code" : "HP",
+        "Code" : "HE",
         "Name" : "Home Email"
       }
     },
@@ -384,7 +384,7 @@
         },
         "EmailTypeCode" : {
           "type" : "string",
-          "example" : "HP"
+          "example" : "HE"
         },
         "EmailType" : {
           "type" : "string",
@@ -413,7 +413,7 @@
         "EmailType" : "Mobile",
         "Id" : 1,
         "ToDateTime" : "2019-04-01 00:00:00",
-        "EmailTypeCode" : "HP",
+        "EmailTypeCode" : "HE",
         "EmailAddress" : "gielisg@selectsoftware.com.au",
         "FromDateTime" : "2019-02-01 00:00:00"
       }
@@ -454,10 +454,10 @@
         "EmailAddress" : "gielisg@selectsoftware.com.au",
         "FromDateTime" : "2019-02-01 00:00:00",
         "EmailTypes" : [ {
-          "Code" : "HP",
+          "Code" : "HE",
           "Name" : "Home Email"
         }, {
-          "Code" : "HP",
+          "Code" : "HE",
           "Name" : "Home Email"
         } ]
       }
@@ -491,10 +491,10 @@
           "EmailAddress" : "gielisg@selectsoftware.com.au",
           "FromDateTime" : "2019-02-01 00:00:00",
           "EmailTypes" : [ {
-            "Code" : "HP",
+            "Code" : "HE",
             "Name" : "Home Email"
           }, {
-            "Code" : "HP",
+            "Code" : "HE",
             "Name" : "Home Email"
           } ]
         }, {
@@ -504,18 +504,18 @@
           "EmailAddress" : "gielisg@selectsoftware.com.au",
           "FromDateTime" : "2019-02-01 00:00:00",
           "EmailTypes" : [ {
-            "Code" : "HP",
+            "Code" : "HE",
             "Name" : "Home Email"
           }, {
-            "Code" : "HP",
+            "Code" : "HE",
             "Name" : "Home Email"
           } ]
         } ],
         "ContactEmailTypes" : [ {
-          "Code" : "HP",
+          "Code" : "HE",
           "Name" : "Home Email"
         }, {
-          "Code" : "HP",
+          "Code" : "HE",
           "Name" : "Home Email"
         } ],
         "ContactEmailMandatoryRules" : [ {
