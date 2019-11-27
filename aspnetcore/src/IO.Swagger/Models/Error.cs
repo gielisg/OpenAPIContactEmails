@@ -21,11 +21,32 @@ using Newtonsoft.Json;
 namespace IO.Swagger.Models
 { 
     /// <summary>
-    /// The unique code of the Contact.
+    /// 
     /// </summary>
     [DataContract]
-    public partial class ContactCode : IEquatable<ContactCode>
+    public partial class Error : IEquatable<Error>
     { 
+        /// <summary>
+        /// Gets or Sets ErrorCode
+        /// </summary>
+        [Required]
+        [DataMember(Name="ErrorCode")]
+        public int? ErrorCode { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ErrorMessage
+        /// </summary>
+        [Required]
+        [DataMember(Name="ErrorMessage")]
+        public string ErrorMessage { get; set; }
+
+        /// <summary>
+        /// Additional error details
+        /// </summary>
+        /// <value>Additional error details</value>
+        [DataMember(Name="DetailedInformation")]
+        public string DetailedInformation { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -33,7 +54,10 @@ namespace IO.Swagger.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ContactCode {\n");
+            sb.Append("class Error {\n");
+            sb.Append("  ErrorCode: ").Append(ErrorCode).Append("\n");
+            sb.Append("  ErrorMessage: ").Append(ErrorMessage).Append("\n");
+            sb.Append("  DetailedInformation: ").Append(DetailedInformation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -56,20 +80,35 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((ContactCode)obj);
+            return obj.GetType() == GetType() && Equals((Error)obj);
         }
 
         /// <summary>
-        /// Returns true if ContactCode instances are equal
+        /// Returns true if Error instances are equal
         /// </summary>
-        /// <param name="other">Instance of ContactCode to be compared</param>
+        /// <param name="other">Instance of Error to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ContactCode other)
+        public bool Equals(Error other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
-            return false;
+            return 
+                (
+                    ErrorCode == other.ErrorCode ||
+                    ErrorCode != null &&
+                    ErrorCode.Equals(other.ErrorCode)
+                ) && 
+                (
+                    ErrorMessage == other.ErrorMessage ||
+                    ErrorMessage != null &&
+                    ErrorMessage.Equals(other.ErrorMessage)
+                ) && 
+                (
+                    DetailedInformation == other.DetailedInformation ||
+                    DetailedInformation != null &&
+                    DetailedInformation.Equals(other.DetailedInformation)
+                );
         }
 
         /// <summary>
@@ -82,6 +121,12 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
+                    if (ErrorCode != null)
+                    hashCode = hashCode * 59 + ErrorCode.GetHashCode();
+                    if (ErrorMessage != null)
+                    hashCode = hashCode * 59 + ErrorMessage.GetHashCode();
+                    if (DetailedInformation != null)
+                    hashCode = hashCode * 59 + DetailedInformation.GetHashCode();
                 return hashCode;
             }
         }
@@ -89,12 +134,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(ContactCode left, ContactCode right)
+        public static bool operator ==(Error left, Error right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(ContactCode left, ContactCode right)
+        public static bool operator !=(Error left, Error right)
         {
             return !Equals(left, right);
         }

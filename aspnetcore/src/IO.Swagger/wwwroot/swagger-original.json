@@ -1,72 +1,100 @@
 {
-  "swagger" : "2.0",
+  "openapi" : "3.0.0",
   "info" : {
-    "description" : "Manages the emails used to contact Contacts.",
-    "version" : "1.0.0",
     "title" : "Contact Emails",
+    "description" : "Manages the emails used to contact a Contact.",
     "contact" : {
       "email" : "gielisg@selectsoftware.com.au"
     },
     "license" : {
       "name" : "Apache 2.0",
       "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
-    }
+    },
+    "version" : "1.0.0"
   },
-  "host" : "virtserver.swaggerhub.com",
-  "basePath" : "/Selcomm/ContactEmails/1.0.0",
-  "schemes" : [ "https" ],
+  "servers" : [ {
+    "url" : "https://virtserver.swaggerhub.com/Selcomm/ContactEmails/1.0.0"
+  } ],
+  "security" : [ {
+    "bearerAuth" : [ ]
+  } ],
   "paths" : {
     "/ContactEmailTypes" : {
       "get" : {
         "summary" : "Provides a list of Contact Phone Types",
         "description" : "List of Contact Email Types to support GUI selection List\n",
         "operationId" : "ContactPhoneTypeList",
-        "produces" : [ "application/json", "application/xml" ],
-        "parameters" : [ {
-          "name" : "SessionKey",
-          "in" : "header",
-          "description" : "The SessionKey for the current Session.",
-          "required" : true,
-          "type" : "string"
-        } ],
         "responses" : {
           "200" : {
             "description" : "Successfully returned a list of a Contact Email Types.",
-            "schema" : {
-              "type" : "array",
-              "items" : {
-                "$ref" : "#/definitions/ContactEmailType"
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/ContactEmailType"
+                  },
+                  "x-content-type" : "application/json"
+                }
+              },
+              "application/xml" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/ContactEmailType"
+                  }
+                }
               }
             }
           },
           "204" : {
-            "description" : "Resource Not Found, request was successfully processed but the requested resource was not found",
-            "schema" : {
-              "$ref" : "#/definitions/NotFound"
+            "description" : "Resource not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
             }
           },
           "400" : {
             "description" : "Bad input parameter",
-            "schema" : {
-              "$ref" : "#/definitions/BadInputParameterError"
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
             }
           },
           "401" : {
-            "description" : "Session expired",
-            "schema" : {
-              "$ref" : "#/definitions/SessionExpiredError"
+            "description" : "Session has expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
             }
           },
           "403" : {
-            "description" : "Authorisation Error",
-            "schema" : {
-              "$ref" : "#/definitions/AuthorisationError"
+            "description" : "Authorisation error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
             }
           },
           "500" : {
             "description" : "Internal server error",
-            "schema" : {
-              "$ref" : "#/definitions/InternalServerError"
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
             }
           }
         }
@@ -77,58 +105,85 @@
         "summary" : "Provides a list of Contact Email Mandatory Types Rules",
         "description" : "List of Contact Email Mandatory Types.\n",
         "operationId" : "ContactEmailMandatoryTypeList",
-        "produces" : [ "application/json", "application/xml" ],
         "parameters" : [ {
-          "name" : "SessionKey",
-          "in" : "header",
-          "description" : "The SessionKey for the current Session.",
-          "required" : true,
-          "type" : "string"
-        }, {
           "name" : "ContactCode",
           "in" : "query",
           "description" : "Id. of the Contact",
           "required" : true,
-          "type" : "string"
+          "style" : "form",
+          "explode" : true
         } ],
         "responses" : {
           "200" : {
             "description" : "Successfully returned a list of a Contact Email Usage Mandatory Rules.",
-            "schema" : {
-              "type" : "array",
-              "items" : {
-                "$ref" : "#/definitions/ContactEmailMandatoryRule"
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/ContactEmailMandatoryRule"
+                  },
+                  "x-content-type" : "application/json"
+                }
+              },
+              "application/xml" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/ContactEmailMandatoryRule"
+                  }
+                }
               }
             }
           },
           "204" : {
-            "description" : "Resource Not Found, request was successfully processed but the requested resource was not found",
-            "schema" : {
-              "$ref" : "#/definitions/NotFound"
+            "description" : "Resource not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
             }
           },
           "400" : {
             "description" : "Bad input parameter",
-            "schema" : {
-              "$ref" : "#/definitions/BadInputParameterError"
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
             }
           },
           "401" : {
-            "description" : "Session expired",
-            "schema" : {
-              "$ref" : "#/definitions/SessionExpiredError"
+            "description" : "Session has expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
             }
           },
           "403" : {
-            "description" : "Authorisation Error",
-            "schema" : {
-              "$ref" : "#/definitions/AuthorisationError"
+            "description" : "Authorisation error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
             }
           },
           "500" : {
             "description" : "Internal server error",
-            "schema" : {
-              "$ref" : "#/definitions/InternalServerError"
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
             }
           }
         }
@@ -139,69 +194,100 @@
         "summary" : "Provides a list of Contact Email Usage items for a Contact",
         "description" : "List of Contact Email Usage.\n",
         "operationId" : "ContactEmailUsage",
-        "produces" : [ "application/json", "application/xml" ],
         "parameters" : [ {
-          "name" : "SessionKey",
-          "in" : "header",
-          "description" : "The SessionKey for the current Session.",
-          "required" : true,
-          "type" : "string"
-        }, {
           "name" : "ContactCode",
           "in" : "query",
           "description" : "Id. of the Contact",
           "required" : true,
-          "type" : "string"
+          "style" : "form",
+          "explode" : true
         }, {
           "name" : "IncludeTypes",
           "in" : "query",
           "description" : "TRUE will include list of available Email Type Codes, FALSE will not.",
           "required" : true,
-          "type" : "boolean",
-          "default" : false
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean",
+            "default" : false
+          }
         }, {
           "name" : "IncludeMandatoryRules",
           "in" : "query",
           "description" : "TRUE will include list of Mandatory Email Type Codes, FALSE will not.",
           "required" : true,
-          "type" : "boolean",
-          "default" : false
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "boolean",
+            "default" : false
+          }
         } ],
         "responses" : {
           "200" : {
             "description" : "Contact Email Usage",
-            "schema" : {
-              "$ref" : "#/definitions/ContactEmailUsage"
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ContactEmailUsage"
+                }
+              },
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ContactEmailUsage"
+                }
+              }
             }
           },
           "204" : {
-            "description" : "Resource Not Found, request was successfully processed but the requested resource was not found",
-            "schema" : {
-              "$ref" : "#/definitions/NotFound"
+            "description" : "Resource not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
             }
           },
           "400" : {
             "description" : "Bad input parameter",
-            "schema" : {
-              "$ref" : "#/definitions/BadInputParameterError"
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
             }
           },
           "401" : {
-            "description" : "Session expired",
-            "schema" : {
-              "$ref" : "#/definitions/SessionExpiredError"
+            "description" : "Session has expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
             }
           },
           "403" : {
-            "description" : "Authorisation Error",
-            "schema" : {
-              "$ref" : "#/definitions/AuthorisationError"
+            "description" : "Authorisation error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
             }
           },
           "500" : {
             "description" : "Internal server error",
-            "schema" : {
-              "$ref" : "#/definitions/InternalServerError"
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
             }
           }
         }
@@ -212,57 +298,88 @@
         "summary" : "Updates Email Usage for a Contact",
         "description" : "Updates Contact Email Usage.\n",
         "operationId" : "ContactEmailUsageUpdate",
-        "produces" : [ "application/json", "application/xml" ],
         "parameters" : [ {
           "name" : "SessionKey",
           "in" : "header",
           "description" : "The SessionKey for the current Session.",
           "required" : true,
-          "type" : "string"
-        }, {
-          "in" : "body",
-          "name" : "ContactEmailUsageUpdate",
-          "description" : "Contact Email Usage Update",
-          "required" : false,
-          "schema" : {
-            "$ref" : "#/definitions/ContactEmailUsageUpdate"
-          }
+          "style" : "simple",
+          "explode" : false
         } ],
+        "requestBody" : {
+          "description" : "Contact Email Usage Update",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/ContactEmailUsageUpdate"
+              }
+            }
+          }
+        },
         "responses" : {
           "200" : {
             "description" : "ContactEmailUsageUpdateResponse",
-            "schema" : {
-              "$ref" : "#/definitions/inline_response_200"
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/inline_response_200"
+                }
+              },
+              "application/xml" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/inline_response_200"
+                }
+              }
             }
           },
           "204" : {
-            "description" : "Resource Not Found, request was successfully processed but the requested resource was not found",
-            "schema" : {
-              "$ref" : "#/definitions/NotFound"
+            "description" : "Resource not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
             }
           },
           "400" : {
             "description" : "Bad input parameter",
-            "schema" : {
-              "$ref" : "#/definitions/BadInputParameterError"
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
             }
           },
           "401" : {
-            "description" : "Session expired",
-            "schema" : {
-              "$ref" : "#/definitions/SessionExpiredError"
+            "description" : "Session has expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
             }
           },
           "403" : {
-            "description" : "Authorisation Error",
-            "schema" : {
-              "$ref" : "#/definitions/AuthorisationError"
+            "description" : "Authorisation error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
             }
           },
           "500" : {
             "description" : "Internal server error",
-            "schema" : {
-              "$ref" : "#/definitions/InternalServerError"
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
             }
           }
         }
@@ -273,223 +390,221 @@
         "summary" : "Provides history of Contact Email Usage items for a Contact",
         "description" : "List of Contact Email Usage.\n",
         "operationId" : "ContactEmailUsageHistory",
-        "produces" : [ "application/json", "application/xml" ],
         "parameters" : [ {
           "name" : "SessionKey",
           "in" : "header",
           "description" : "The SessionKey for the current Session.",
           "required" : true,
-          "type" : "string"
+          "style" : "simple",
+          "explode" : false
         }, {
           "name" : "ContactCode",
           "in" : "query",
           "description" : "Id. of the Contact",
           "required" : true,
-          "type" : "string"
+          "style" : "form",
+          "explode" : true
         } ],
         "responses" : {
           "200" : {
             "description" : "Contact Email Usage History",
-            "schema" : {
-              "type" : "array",
-              "items" : {
-                "$ref" : "#/definitions/ContactEmailHistory"
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/ContactEmailHistory"
+                  },
+                  "x-content-type" : "application/json"
+                }
+              },
+              "application/xml" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/ContactEmailHistory"
+                  }
+                }
               }
             }
           },
           "204" : {
-            "description" : "Resource Not Found, request was successfully processed but the requested resource was not found",
-            "schema" : {
-              "$ref" : "#/definitions/NotFound"
+            "description" : "Resource not found",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
             }
           },
           "400" : {
             "description" : "Bad input parameter",
-            "schema" : {
-              "$ref" : "#/definitions/BadInputParameterError"
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
             }
           },
           "401" : {
-            "description" : "Session expired",
-            "schema" : {
-              "$ref" : "#/definitions/SessionExpiredError"
+            "description" : "Session has expired",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
             }
           },
           "403" : {
-            "description" : "Authorisation Error",
-            "schema" : {
-              "$ref" : "#/definitions/AuthorisationError"
+            "description" : "Authorisation error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
             }
           },
           "500" : {
             "description" : "Internal server error",
-            "schema" : {
-              "$ref" : "#/definitions/InternalServerError"
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
             }
           }
         }
       }
     }
   },
-  "definitions" : {
-    "ContactEmailType" : {
-      "properties" : {
-        "Code" : {
-          "type" : "string",
-          "example" : "HE",
-          "maxLength" : 2
-        },
-        "Name" : {
-          "type" : "string",
-          "example" : "Home Email",
-          "description" : "Name of the Contact Email Type."
-        }
-      },
-      "example" : {
-        "Code" : "HE",
-        "Name" : "Home Email"
-      }
-    },
-    "ContactEmailTypeCode" : {
-      "properties" : {
-        "Code" : {
-          "type" : "string",
-          "example" : "HE"
-        }
-      }
-    },
-    "ContactEmailMandatoryRule" : {
-      "properties" : {
-        "TypeCode" : {
-          "type" : "string",
-          "example" : "HE"
-        },
-        "Type" : {
-          "type" : "string",
-          "example" : "Home Email",
-          "description" : "Name of the Email Type"
-        }
-      },
-      "example" : {
-        "Type" : "Home Email",
-        "TypeCode" : "HE"
-      }
-    },
-    "ContactEmailHistory" : {
-      "properties" : {
-        "Id" : {
-          "type" : "integer",
-          "example" : 1,
-          "description" : "Id. of the Contact Email History item"
-        },
-        "EmailTypeCode" : {
-          "type" : "string",
-          "example" : "HE"
-        },
-        "EmailType" : {
-          "type" : "string",
-          "example" : "Mobile",
-          "description" : "Name of the Email Type",
-          "maxLength" : 2
-        },
-        "EmailAddress" : {
-          "type" : "string",
-          "format" : "email",
-          "example" : "gielisg@selectsoftware.com.au",
-          "description" : "The Email Address."
-        },
-        "FromDateTime" : {
-          "$ref" : "#/definitions/FromDateTime"
-        },
-        "ToDateTime" : {
-          "$ref" : "#/definitions/ToDateTime"
-        },
-        "UpdatedBy" : {
-          "$ref" : "#/definitions/LastUpdatedBy"
-        }
-      },
-      "example" : {
-        "UpdatedBy" : 4001304,
-        "EmailType" : "Mobile",
-        "Id" : 1,
-        "ToDateTime" : "2019-04-01 00:00:00",
-        "EmailTypeCode" : "HE",
-        "EmailAddress" : "gielisg@selectsoftware.com.au",
-        "FromDateTime" : "2019-02-01 00:00:00"
-      }
-    },
-    "ContactEmailUsageItem" : {
-      "properties" : {
-        "Id" : {
-          "type" : "integer",
-          "example" : 1,
-          "description" : "Id. of the Contact Email item"
-        },
-        "EmailAddress" : {
-          "type" : "string",
-          "format" : "email",
-          "example" : "gielisg@selectsoftware.com.au",
-          "description" : "The Email Address."
-        },
-        "EmailTypes" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/ContactEmailType"
+  "components" : {
+    "schemas" : {
+      "ContactEmailType" : {
+        "properties" : {
+          "Code" : {
+            "maxLength" : 2,
+            "type" : "string",
+            "example" : "HE"
+          },
+          "Name" : {
+            "type" : "string",
+            "description" : "Name of the Contact Email Type.",
+            "example" : "Home Email"
           }
         },
-        "FromDateTime" : {
-          "$ref" : "#/definitions/FromDateTime"
-        },
-        "LastUpdated" : {
-          "$ref" : "#/definitions/LastUpdatedDateTime"
-        },
-        "UpdatedBy" : {
-          "$ref" : "#/definitions/LastUpdatedBy"
-        }
-      },
-      "example" : {
-        "UpdatedBy" : 4001304,
-        "Id" : 1,
-        "LastUpdated" : "2019-02-01 00:00:00",
-        "EmailAddress" : "gielisg@selectsoftware.com.au",
-        "FromDateTime" : "2019-02-01 00:00:00",
-        "EmailTypes" : [ {
+        "example" : {
           "Code" : "HE",
           "Name" : "Home Email"
-        }, {
-          "Code" : "HE",
-          "Name" : "Home Email"
-        } ]
-      }
-    },
-    "ContactEmailUsage" : {
-      "properties" : {
-        "ContactEmailUsage" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/ContactEmailUsageItem"
-          }
-        },
-        "ContactEmailMandatoryRules" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/ContactEmailMandatoryRule"
-          }
-        },
-        "ContactEmailTypes" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/ContactEmailType"
+        }
+      },
+      "ContactEmailTypeCode" : {
+        "properties" : {
+          "Code" : {
+            "type" : "string",
+            "example" : "HE"
           }
         }
       },
-      "example" : {
-        "ContactEmailUsage" : [ {
-          "UpdatedBy" : 4001304,
+      "ContactEmailMandatoryRule" : {
+        "properties" : {
+          "TypeCode" : {
+            "type" : "string",
+            "example" : "HE"
+          },
+          "Type" : {
+            "type" : "string",
+            "description" : "Name of the Email Type",
+            "example" : "Home Email"
+          }
+        },
+        "example" : {
+          "Type" : "Home Email",
+          "TypeCode" : "HE"
+        }
+      },
+      "ContactEmailHistory" : {
+        "properties" : {
+          "Id" : {
+            "type" : "integer",
+            "description" : "Id. of the Contact Email History item",
+            "example" : 1
+          },
+          "EmailTypeCode" : {
+            "type" : "string",
+            "example" : "HE"
+          },
+          "EmailType" : {
+            "maxLength" : 2,
+            "type" : "string",
+            "description" : "Name of the Email Type",
+            "example" : "Mobile"
+          },
+          "EmailAddress" : {
+            "type" : "string",
+            "description" : "The Email Address.",
+            "format" : "email",
+            "example" : "gielisg@selectsoftware.com.au"
+          },
+          "FromDateTime" : {
+            "$ref" : "#/components/schemas/FromDateTime"
+          },
+          "ToDateTime" : {
+            "$ref" : "#/components/schemas/ToDateTime"
+          },
+          "UpdatedBy" : {
+            "$ref" : "#/components/schemas/LastUpdatedBy"
+          }
+        },
+        "example" : {
+          "UpdatedBy" : "4001304",
+          "EmailType" : "Mobile",
           "Id" : 1,
-          "LastUpdated" : "2019-02-01 00:00:00",
+          "ToDateTime" : "2000-01-23T04:56:07.000+00:00",
+          "EmailTypeCode" : "HE",
           "EmailAddress" : "gielisg@selectsoftware.com.au",
-          "FromDateTime" : "2019-02-01 00:00:00",
+          "FromDateTime" : "2000-01-23T04:56:07.000+00:00"
+        }
+      },
+      "ContactEmailUsageItem" : {
+        "properties" : {
+          "Id" : {
+            "type" : "integer",
+            "description" : "Id. of the Contact Email item",
+            "example" : 1
+          },
+          "EmailAddress" : {
+            "type" : "string",
+            "description" : "The Email Address.",
+            "format" : "email",
+            "example" : "gielisg@selectsoftware.com.au"
+          },
+          "EmailTypes" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ContactEmailType"
+            }
+          },
+          "FromDateTime" : {
+            "$ref" : "#/components/schemas/FromDateTime"
+          },
+          "LastUpdated" : {
+            "$ref" : "#/components/schemas/LastUpdatedDateTime"
+          },
+          "UpdatedBy" : {
+            "$ref" : "#/components/schemas/LastUpdatedBy"
+          }
+        },
+        "example" : {
+          "UpdatedBy" : "4001304",
+          "Id" : 1,
+          "LastUpdated" : "2000-01-23T04:56:07.000+00:00",
+          "EmailAddress" : "gielisg@selectsoftware.com.au",
+          "FromDateTime" : "2000-01-23T04:56:07.000+00:00",
           "EmailTypes" : [ {
             "Code" : "HE",
             "Name" : "Home Email"
@@ -497,210 +612,164 @@
             "Code" : "HE",
             "Name" : "Home Email"
           } ]
-        }, {
-          "UpdatedBy" : 4001304,
-          "Id" : 1,
-          "LastUpdated" : "2019-02-01 00:00:00",
-          "EmailAddress" : "gielisg@selectsoftware.com.au",
-          "FromDateTime" : "2019-02-01 00:00:00",
-          "EmailTypes" : [ {
-            "Code" : "HE",
-            "Name" : "Home Email"
+        }
+      },
+      "ContactEmailUsage" : {
+        "properties" : {
+          "ContactEmailUsage" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ContactEmailUsageItem"
+            }
+          },
+          "ContactEmailMandatoryRules" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ContactEmailMandatoryRule"
+            }
+          },
+          "ContactEmailTypes" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ContactEmailType"
+            }
+          }
+        },
+        "example" : {
+          "ContactEmailUsage" : [ {
+            "UpdatedBy" : "4001304",
+            "Id" : 1,
+            "LastUpdated" : "2000-01-23T04:56:07.000+00:00",
+            "EmailAddress" : "gielisg@selectsoftware.com.au",
+            "FromDateTime" : "2000-01-23T04:56:07.000+00:00",
+            "EmailTypes" : [ {
+              "Code" : "HE",
+              "Name" : "Home Email"
+            }, {
+              "Code" : "HE",
+              "Name" : "Home Email"
+            } ]
           }, {
-            "Code" : "HE",
-            "Name" : "Home Email"
+            "UpdatedBy" : "4001304",
+            "Id" : 1,
+            "LastUpdated" : "2000-01-23T04:56:07.000+00:00",
+            "EmailAddress" : "gielisg@selectsoftware.com.au",
+            "FromDateTime" : "2000-01-23T04:56:07.000+00:00",
+            "EmailTypes" : [ {
+              "Code" : "HE",
+              "Name" : "Home Email"
+            }, {
+              "Code" : "HE",
+              "Name" : "Home Email"
+            } ]
+          } ],
+          "ContactEmailTypes" : [ null, null ],
+          "ContactEmailMandatoryRules" : [ {
+            "Type" : "Home Email",
+            "TypeCode" : "HE"
+          }, {
+            "Type" : "Home Email",
+            "TypeCode" : "HE"
           } ]
-        } ],
-        "ContactEmailTypes" : [ {
-          "Code" : "HE",
-          "Name" : "Home Email"
-        }, {
-          "Code" : "HE",
-          "Name" : "Home Email"
-        } ],
-        "ContactEmailMandatoryRules" : [ {
-          "Type" : "Home Email",
-          "TypeCode" : "HE"
-        }, {
-          "Type" : "Home Email",
-          "TypeCode" : "HE"
-        } ]
-      }
-    },
-    "ContactEmailUsageUpdate" : {
-      "properties" : {
-        "ContactCode" : {
-          "$ref" : "#/definitions/ContactCode"
-        },
-        "ContactEmailUsage" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/ContactEmailUsageUpdateItem"
+        }
+      },
+      "ContactEmailUsageUpdate" : {
+        "properties" : {
+          "ContactCode" : {
+            "$ref" : "#/components/schemas/ContactCode"
+          },
+          "ContactEmailUsage" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ContactEmailUsageUpdateItem"
+            }
           }
         }
-      }
-    },
-    "ContactEmailUsageUpdateItem" : {
-      "properties" : {
-        "EmailAddress" : {
-          "type" : "string",
-          "format" : "email",
-          "example" : "gielisg@selectsoftware.com.au",
-          "description" : "The Email Address."
-        },
-        "EmailTypes" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/ContactEmailTypeCode"
+      },
+      "ContactEmailUsageUpdateItem" : {
+        "properties" : {
+          "EmailAddress" : {
+            "type" : "string",
+            "description" : "The Email Address.",
+            "format" : "email",
+            "example" : "gielisg@selectsoftware.com.au"
+          },
+          "EmailTypes" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ContactEmailTypeCode"
+            }
           }
         }
+      },
+      "Error" : {
+        "required" : [ "ErrorCode", "ErrorMessage" ],
+        "type" : "object",
+        "properties" : {
+          "ErrorCode" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "ErrorMessage" : {
+            "type" : "string"
+          },
+          "DetailedInformation" : {
+            "type" : "string",
+            "description" : "Additional error details",
+            "example" : "Quantity parameter should be numeric"
+          }
+        }
+      },
+      "FromDateTime" : {
+        "type" : "string",
+        "description" : "The start date time of a time period.",
+        "format" : "date-time"
+      },
+      "ToDateTime" : {
+        "type" : "string",
+        "description" : "The end date time of a time period.",
+        "format" : "date-time"
+      },
+      "LastUpdatedBy" : {
+        "type" : "string",
+        "description" : "The User that last updated the entity.",
+        "example" : "4001304"
+      },
+      "LastUpdatedDateTime" : {
+        "type" : "string",
+        "description" : "The date the entity was last updated.",
+        "format" : "date-time"
+      },
+      "ContactCode" : {
+        "type" : "string",
+        "description" : "The unique code of the Contact.",
+        "example" : "4001304"
+      },
+      "inline_response_200" : {
+        "type" : "object",
+        "properties" : {
+          "Successful" : {
+            "type" : "boolean",
+            "description" : "TRUE if Code is correct, FALSE if not.",
+            "example" : true
+          },
+          "ErrorMessage" : {
+            "type" : "string",
+            "description" : "Additional information about the update.",
+            "example" : "Missing mandatory Email Type"
+          }
+        },
+        "example" : {
+          "ErrorMessage" : "Missing mandatory Email Type",
+          "Successful" : true
+        }
       }
     },
-    "NotFound" : {
-      "type" : "object",
-      "properties" : {
-        "ErrorCode" : {
-          "type" : "number",
-          "example" : 204.0,
-          "description" : "The status code, same as http status"
-        },
-        "ErrorMessage" : {
-          "type" : "string",
-          "example" : "Resource not found"
-        },
-        "DetailedInformation" : {
-          "type" : "string",
-          "example" : "Database entity not found",
-          "description" : "Additional details"
-        }
-      },
-      "description" : "Response object for a Resource Not Found condition"
-    },
-    "BadInputParameterError" : {
-      "type" : "object",
-      "properties" : {
-        "ErrorCode" : {
-          "type" : "number",
-          "example" : 400.0,
-          "description" : "The error code, same as http status"
-        },
-        "ErrorMessage" : {
-          "type" : "string",
-          "example" : "Bad Input Parameter"
-        },
-        "DetailedInformation" : {
-          "type" : "string",
-          "example" : "Quantity parameter should be numeric",
-          "description" : "Additional error details"
-        }
-      },
-      "description" : "Error object for bad input parameters"
-    },
-    "SessionExpiredError" : {
-      "type" : "object",
-      "properties" : {
-        "ErrorCode" : {
-          "type" : "number",
-          "example" : 401.0,
-          "description" : "The error code, same as http status"
-        },
-        "ErrorMessage" : {
-          "type" : "string",
-          "example" : "Session expired"
-        },
-        "DetailedInformation" : {
-          "type" : "string",
-          "example" : "Session has expired, please re-authenticate",
-          "description" : "Additional error details"
-        }
-      },
-      "description" : "Error object for a Session Expired Error"
-    },
-    "AuthorisationError" : {
-      "type" : "object",
-      "properties" : {
-        "ErrorCode" : {
-          "type" : "number",
-          "example" : 403.0,
-          "description" : "The error code, same as http status"
-        },
-        "ErrorMessage" : {
-          "type" : "string",
-          "example" : "Resource Denied"
-        },
-        "DetailedInformation" : {
-          "type" : "string",
-          "example" : "User not authorised to use the ChangePassword API",
-          "description" : "Additional error details"
-        }
-      },
-      "description" : "Error object for a Authorisation Error"
-    },
-    "InternalServerError" : {
-      "type" : "object",
-      "properties" : {
-        "ErrorCode" : {
-          "type" : "number",
-          "example" : 500.0,
-          "description" : "The error code, same as http status"
-        },
-        "ErrorMessage" : {
-          "type" : "string",
-          "example" : "Internal Server Error"
-        },
-        "DetailedInformation" : {
-          "type" : "string",
-          "example" : "Database refusing connection requests",
-          "description" : "Additional error details"
-        }
-      },
-      "description" : "Error object for an internal server error"
-    },
-    "FromDateTime" : {
-      "type" : "string",
-      "format" : "date-time",
-      "description" : "The start date time of a time period.",
-      "example" : "2019-02-01 00:00:00"
-    },
-    "ToDateTime" : {
-      "type" : "string",
-      "format" : "date-time",
-      "description" : "The end date time of a time period.",
-      "example" : "2019-04-01 00:00:00"
-    },
-    "LastUpdatedBy" : {
-      "type" : "string",
-      "description" : "The User that last updated the entity.",
-      "example" : 4001304
-    },
-    "LastUpdatedDateTime" : {
-      "type" : "string",
-      "format" : "date-time",
-      "description" : "The date the entity was last updated.",
-      "example" : "2019-02-01 00:00:00"
-    },
-    "ContactCode" : {
-      "type" : "string",
-      "description" : "The unique code of the Contact.",
-      "example" : 4001304
-    },
-    "inline_response_200" : {
-      "type" : "object",
-      "properties" : {
-        "Successful" : {
-          "type" : "boolean",
-          "example" : true,
-          "description" : "TRUE if Code is correct, FALSE if not."
-        },
-        "ErrorMessage" : {
-          "type" : "string",
-          "example" : "Missing mandatory Email Type",
-          "description" : "Additional information about the update."
-        }
-      },
-      "example" : {
-        "ErrorMessage" : "Missing mandatory Email Type",
-        "Successful" : true
+    "securitySchemes" : {
+      "bearerAuth" : {
+        "type" : "http",
+        "scheme" : "bearer",
+        "bearerFormat" : "JWT"
       }
     }
   }

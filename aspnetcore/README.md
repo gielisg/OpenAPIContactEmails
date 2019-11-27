@@ -1,6 +1,6 @@
 # IO.Swagger - ASP.NET Core 2.0 Server
 
-Manages the emails used to contact Contacts.
+Manages the emails used to contact a Contact.
 
 ## Run
 
