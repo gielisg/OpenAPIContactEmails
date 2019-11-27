@@ -27,6 +27,13 @@ namespace IO.Swagger.Models
     public partial class ContactEmailHistory : IEquatable<ContactEmailHistory>
     { 
         /// <summary>
+        /// The start date time of a time period.
+        /// </summary>
+        /// <value>The start date time of a time period.</value>
+        [DataMember(Name="FromDateTime")]
+        public DateTime? FromDateTime { get; set; }
+
+        /// <summary>
         /// The Datetime the entity was created in the database. This is automatically updated by the database, data passed to the API in this property will be ignored.
         /// </summary>
         /// <value>The Datetime the entity was created in the database. This is automatically updated by the database, data passed to the API in this property will be ignored.</value>
@@ -62,6 +69,7 @@ namespace IO.Swagger.Models
         {
             var sb = new StringBuilder();
             sb.Append("class ContactEmailHistory {\n");
+            sb.Append("  FromDateTime: ").Append(FromDateTime).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
             sb.Append("  LastUpdated: ").Append(LastUpdated).Append("\n");
@@ -103,6 +111,11 @@ namespace IO.Swagger.Models
 
             return 
                 (
+                    FromDateTime == other.FromDateTime ||
+                    FromDateTime != null &&
+                    FromDateTime.Equals(other.FromDateTime)
+                ) && 
+                (
                     Created == other.Created ||
                     Created != null &&
                     Created.Equals(other.Created)
@@ -134,6 +147,8 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
+                    if (FromDateTime != null)
+                    hashCode = hashCode * 59 + FromDateTime.GetHashCode();
                     if (Created != null)
                     hashCode = hashCode * 59 + Created.GetHashCode();
                     if (CreatedBy != null)
