@@ -172,7 +172,7 @@ namespace IO.Swagger.Controllers
             //TODO: Uncomment the next line to return response 500 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(500, default(Error));
             string exampleJson = null;
-            exampleJson = "[ \"\", \"\" ]";
+            exampleJson = "[ {\n  \"LastUpdatedBy\" : \"4001304\",\n  \"EmailType\" : \"Mobile\",\n  \"CreatedBy\" : \"4001304\",\n  \"Id\" : 1,\n  \"ToDateTime\" : \"2000-01-23T04:56:07.000+00:00\",\n  \"EmailTypeCode\" : \"HE\",\n  \"EmailAddress\" : \"gielisg@selectsoftware.com.au\",\n  \"FromDateTime\" : \"2000-01-23T04:56:07.000+00:00\",\n  \"CreatedDateTime\" : \"2000-01-23T04:56:07.000+00:00\",\n  \"LastUpdatedDateTime\" : \"2000-01-23T04:56:07.000+00:00\"\n}, {\n  \"LastUpdatedBy\" : \"4001304\",\n  \"EmailType\" : \"Mobile\",\n  \"CreatedBy\" : \"4001304\",\n  \"Id\" : 1,\n  \"ToDateTime\" : \"2000-01-23T04:56:07.000+00:00\",\n  \"EmailTypeCode\" : \"HE\",\n  \"EmailAddress\" : \"gielisg@selectsoftware.com.au\",\n  \"FromDateTime\" : \"2000-01-23T04:56:07.000+00:00\",\n  \"CreatedDateTime\" : \"2000-01-23T04:56:07.000+00:00\",\n  \"LastUpdatedDateTime\" : \"2000-01-23T04:56:07.000+00:00\"\n} ]";
             
                         var example = exampleJson != null
                         ? JsonConvert.DeserializeObject<List<ContactEmailHistory>>(exampleJson)
