@@ -50,7 +50,7 @@ namespace IO.Swagger.Models
         /// Gets or Sets FromDateTime
         /// </summary>
         [DataMember(Name="FromDateTime")]
-        public FromDateTime FromDateTime { get; set; }
+        public FromDt FromDateTime { get; set; }
 
         /// <summary>
         /// Gets or Sets LastUpdated

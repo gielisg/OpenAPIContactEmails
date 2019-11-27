@@ -27,6 +27,13 @@ namespace IO.Swagger.Models
     public partial class ContactEmailHistory : IEquatable<ContactEmailHistory>
     { 
         /// <summary>
+        /// The end date time of a time period.
+        /// </summary>
+        /// <value>The end date time of a time period.</value>
+        [DataMember(Name="FromDateTime")]
+        public DateTime? FromDateTime { get; set; }
+
+        /// <summary>
         /// The Datetime the entity was created in the database. This is automatically updated by the database, data passed to the API in this property will be ignored.
         /// </summary>
         /// <value>The Datetime the entity was created in the database. This is automatically updated by the database, data passed to the API in this property will be ignored.</value>
@@ -55,41 +62,6 @@ namespace IO.Swagger.Models
         public string UpdatedBy { get; set; }
 
         /// <summary>
-        /// Unique identifier of the menu item
-        /// </summary>
-        /// <value>Unique identifier of the menu item</value>
-        [DataMember(Name="Id")]
-        public decimal? Id { get; set; }
-
-        /// <summary>
-        /// The text that will appear to the user for the menu item
-        /// </summary>
-        /// <value>The text that will appear to the user for the menu item</value>
-        [DataMember(Name="Caption")]
-        public string Caption { get; set; }
-
-        /// <summary>
-        /// A mouse-over tooltip for this menu item
-        /// </summary>
-        /// <value>A mouse-over tooltip for this menu item</value>
-        [DataMember(Name="Tooltip")]
-        public string Tooltip { get; set; }
-
-        /// <summary>
-        /// The order in which this menu item appears in the menu relative to the other menu items
-        /// </summary>
-        /// <value>The order in which this menu item appears in the menu relative to the other menu items</value>
-        [DataMember(Name="Order")]
-        public decimal? Order { get; set; }
-
-        /// <summary>
-        /// The Resource to navigate to on selection of this menu item.
-        /// </summary>
-        /// <value>The Resource to navigate to on selection of this menu item.</value>
-        [DataMember(Name="NavigationPath")]
-        public string NavigationPath { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -97,15 +69,11 @@ namespace IO.Swagger.Models
         {
             var sb = new StringBuilder();
             sb.Append("class ContactEmailHistory {\n");
+            sb.Append("  FromDateTime: ").Append(FromDateTime).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
             sb.Append("  LastUpdated: ").Append(LastUpdated).Append("\n");
             sb.Append("  UpdatedBy: ").Append(UpdatedBy).Append("\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Caption: ").Append(Caption).Append("\n");
-            sb.Append("  Tooltip: ").Append(Tooltip).Append("\n");
-            sb.Append("  Order: ").Append(Order).Append("\n");
-            sb.Append("  NavigationPath: ").Append(NavigationPath).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -143,6 +111,11 @@ namespace IO.Swagger.Models
 
             return 
                 (
+                    FromDateTime == other.FromDateTime ||
+                    FromDateTime != null &&
+                    FromDateTime.Equals(other.FromDateTime)
+                ) && 
+                (
                     Created == other.Created ||
                     Created != null &&
                     Created.Equals(other.Created)
@@ -161,31 +134,6 @@ namespace IO.Swagger.Models
                     UpdatedBy == other.UpdatedBy ||
                     UpdatedBy != null &&
                     UpdatedBy.Equals(other.UpdatedBy)
-                ) && 
-                (
-                    Id == other.Id ||
-                    Id != null &&
-                    Id.Equals(other.Id)
-                ) && 
-                (
-                    Caption == other.Caption ||
-                    Caption != null &&
-                    Caption.Equals(other.Caption)
-                ) && 
-                (
-                    Tooltip == other.Tooltip ||
-                    Tooltip != null &&
-                    Tooltip.Equals(other.Tooltip)
-                ) && 
-                (
-                    Order == other.Order ||
-                    Order != null &&
-                    Order.Equals(other.Order)
-                ) && 
-                (
-                    NavigationPath == other.NavigationPath ||
-                    NavigationPath != null &&
-                    NavigationPath.Equals(other.NavigationPath)
                 );
         }
 
@@ -199,6 +147,8 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
+                    if (FromDateTime != null)
+                    hashCode = hashCode * 59 + FromDateTime.GetHashCode();
                     if (Created != null)
                     hashCode = hashCode * 59 + Created.GetHashCode();
                     if (CreatedBy != null)
@@ -207,16 +157,6 @@ namespace IO.Swagger.Models
                     hashCode = hashCode * 59 + LastUpdated.GetHashCode();
                     if (UpdatedBy != null)
                     hashCode = hashCode * 59 + UpdatedBy.GetHashCode();
-                    if (Id != null)
-                    hashCode = hashCode * 59 + Id.GetHashCode();
-                    if (Caption != null)
-                    hashCode = hashCode * 59 + Caption.GetHashCode();
-                    if (Tooltip != null)
-                    hashCode = hashCode * 59 + Tooltip.GetHashCode();
-                    if (Order != null)
-                    hashCode = hashCode * 59 + Order.GetHashCode();
-                    if (NavigationPath != null)
-                    hashCode = hashCode * 59 + NavigationPath.GetHashCode();
                 return hashCode;
             }
         }
