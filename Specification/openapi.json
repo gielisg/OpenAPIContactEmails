@@ -545,8 +545,6 @@
         }, {
           "$ref" : "#/components/schemas/FromDt"
         }, {
-          "$ref" : "#/components/schemas/ToDateTime"
-        }, {
           "$ref" : "#/components/schemas/DataObject"
         } ]
       },
@@ -657,12 +655,8 @@
             "description" : "The start date time of a time period.",
             "format" : "date-time"
           }
-        }
-      },
-      "ToDateTime" : {
-        "type" : "string",
-        "description" : "The end date time of a time period.",
-        "format" : "date-time"
+        },
+        "description" : "The start date time of a time period."
       },
       "DataObject" : {
         "type" : "object",

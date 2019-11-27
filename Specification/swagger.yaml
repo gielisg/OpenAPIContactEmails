@@ -364,7 +364,6 @@ components:
             format: email
             example: gielisg@selectsoftware.com.au
       - $ref: '#/components/schemas/FromDt'
-      - $ref: '#/components/schemas/ToDateTime'
       - $ref: '#/components/schemas/DataObject'
     ContactEmailUsageItem:
       properties:
@@ -442,10 +441,7 @@ components:
           type: string
           description: The start date time of a time period.
           format: date-time
-    ToDateTime:
-      type: string
-      description: The end date time of a time period.
-      format: date-time
+      description: The start date time of a time period.
     DataObject:
       type: object
       properties:
