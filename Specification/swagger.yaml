@@ -364,6 +364,8 @@ components:
             format: email
             example: gielisg@selectsoftware.com.au
       - $ref: '#/components/schemas/FromDateTime'
+      - $ref: '#/components/schemas/ToDateTime'
+      - $ref: '#/components/schemas/DataObject'
     ContactEmailUsageItem:
       properties:
         Id:
@@ -434,12 +436,39 @@ components:
           description: Additional error details
           example: Quantity parameter should be numeric
     FromDateTime:
+      type: string
+      description: The start date time of a time period.
+      format: date-time
+    ToDateTime:
+      type: string
+      description: The end date time of a time period.
+      format: date-time
+    DataObject:
       type: object
       properties:
-        FromDateTime:
-          description: The start date time of a time period.
+        Created:
+          type: string
+          description: The Datetime the entity was created in the database. This is
+            automatically updated by the database, data passed to the API in this
+            property will be ignored.
           format: date-time
-          example: 2019-02-01 00:00:00
+        CreatedBy:
+          type: string
+          description: The user who created this entity. This is automatically updated
+            by the database, data passed to the API in this property will be ignored.
+          example: Gordon Gielis gielisg
+        LastUpdated:
+          type: string
+          description: The date and time the object was last updated in the database.
+            This is automatically updated by the database, data passed to the API
+            in this property will be ignored.
+          format: date-time
+        UpdatedBy:
+          type: string
+          description: The user who performed the last update in the database. This
+            is automatically updated by the database, data passed to the API in this
+            property will be ignored.
+          example: Gordon Gielis gielisg
     LastUpdatedDateTime:
       type: string
       description: The date the entity was last updated.

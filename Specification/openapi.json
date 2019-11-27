@@ -544,6 +544,10 @@
           }
         }, {
           "$ref" : "#/components/schemas/FromDateTime"
+        }, {
+          "$ref" : "#/components/schemas/ToDateTime"
+        }, {
+          "$ref" : "#/components/schemas/DataObject"
         } ]
       },
       "ContactEmailUsageItem" : {
@@ -646,12 +650,37 @@
         }
       },
       "FromDateTime" : {
+        "type" : "string",
+        "description" : "The start date time of a time period.",
+        "format" : "date-time"
+      },
+      "ToDateTime" : {
+        "type" : "string",
+        "description" : "The end date time of a time period.",
+        "format" : "date-time"
+      },
+      "DataObject" : {
         "type" : "object",
         "properties" : {
-          "FromDateTime" : {
-            "description" : "The start date time of a time period.",
-            "format" : "date-time",
-            "example" : "2019-02-01 00:00:00"
+          "Created" : {
+            "type" : "string",
+            "description" : "The Datetime the entity was created in the database. This is automatically updated by the database, data passed to the API in this property will be ignored.",
+            "format" : "date-time"
+          },
+          "CreatedBy" : {
+            "type" : "string",
+            "description" : "The user who created this entity. This is automatically updated by the database, data passed to the API in this property will be ignored.",
+            "example" : "Gordon Gielis gielisg"
+          },
+          "LastUpdated" : {
+            "type" : "string",
+            "description" : "The date and time the object was last updated in the database. This is automatically updated by the database, data passed to the API in this property will be ignored.",
+            "format" : "date-time"
+          },
+          "UpdatedBy" : {
+            "type" : "string",
+            "description" : "The user who performed the last update in the database. This is automatically updated by the database, data passed to the API in this property will be ignored.",
+            "example" : "Gordon Gielis gielisg"
           }
         }
       },
