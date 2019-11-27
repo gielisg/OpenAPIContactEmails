@@ -364,8 +364,6 @@ components:
             format: email
             example: gielisg@selectsoftware.com.au
       - $ref: '#/components/schemas/FromDateTime'
-      - $ref: '#/components/schemas/ToDateTime'
-      - $ref: '#/components/schemas/LastUpdatedBy'
     ContactEmailUsageItem:
       properties:
         Id:
@@ -436,21 +434,20 @@ components:
           description: Additional error details
           example: Quantity parameter should be numeric
     FromDateTime:
+      type: object
+      properties:
+        FromDateTime:
+          description: The start date time of a time period.
+          format: date-time
+          example: 2019-02-01 00:00:00
+    LastUpdatedDateTime:
       type: string
-      description: The start date time of a time period.
-      format: date-time
-    ToDateTime:
-      type: string
-      description: The end date time of a time period.
+      description: The date the entity was last updated.
       format: date-time
     LastUpdatedBy:
       type: string
       description: The User that last updated the entity.
       example: "4001304"
-    LastUpdatedDateTime:
-      type: string
-      description: The date the entity was last updated.
-      format: date-time
     ContactCode:
       type: string
       description: The unique code of the Contact.

@@ -544,10 +544,6 @@
           }
         }, {
           "$ref" : "#/components/schemas/FromDateTime"
-        }, {
-          "$ref" : "#/components/schemas/ToDateTime"
-        }, {
-          "$ref" : "#/components/schemas/LastUpdatedBy"
         } ]
       },
       "ContactEmailUsageItem" : {
@@ -650,24 +646,24 @@
         }
       },
       "FromDateTime" : {
-        "type" : "string",
-        "description" : "The start date time of a time period.",
-        "format" : "date-time"
+        "type" : "object",
+        "properties" : {
+          "FromDateTime" : {
+            "description" : "The start date time of a time period.",
+            "format" : "date-time",
+            "example" : "2019-02-01 00:00:00"
+          }
+        }
       },
-      "ToDateTime" : {
+      "LastUpdatedDateTime" : {
         "type" : "string",
-        "description" : "The end date time of a time period.",
+        "description" : "The date the entity was last updated.",
         "format" : "date-time"
       },
       "LastUpdatedBy" : {
         "type" : "string",
         "description" : "The User that last updated the entity.",
         "example" : "4001304"
-      },
-      "LastUpdatedDateTime" : {
-        "type" : "string",
-        "description" : "The date the entity was last updated.",
-        "format" : "date-time"
       },
       "ContactCode" : {
         "type" : "string",
