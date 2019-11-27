@@ -21,11 +21,18 @@ using Newtonsoft.Json;
 namespace IO.Swagger.Models
 { 
     /// <summary>
-    /// The start date time of a time period.
+    /// 
     /// </summary>
     [DataContract]
     public partial class FromDateTime : IEquatable<FromDateTime>
     { 
+        /// <summary>
+        /// The start date time of a time period.
+        /// </summary>
+        /// <value>The start date time of a time period.</value>
+        [DataMember(Name="FromDateTime")]
+        public  _FromDateTime { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -34,6 +41,7 @@ namespace IO.Swagger.Models
         {
             var sb = new StringBuilder();
             sb.Append("class FromDateTime {\n");
+            sb.Append("  _FromDateTime: ").Append(_FromDateTime).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -69,7 +77,12 @@ namespace IO.Swagger.Models
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
-            return false;
+            return 
+                (
+                    _FromDateTime == other._FromDateTime ||
+                    _FromDateTime != null &&
+                    _FromDateTime.Equals(other._FromDateTime)
+                );
         }
 
         /// <summary>
@@ -82,6 +95,8 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
+                    if (_FromDateTime != null)
+                    hashCode = hashCode * 59 + _FromDateTime.GetHashCode();
                 return hashCode;
             }
         }

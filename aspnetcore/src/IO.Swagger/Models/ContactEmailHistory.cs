@@ -27,6 +27,13 @@ namespace IO.Swagger.Models
     public partial class ContactEmailHistory : IEquatable<ContactEmailHistory>
     { 
         /// <summary>
+        /// The start date time of a time period.
+        /// </summary>
+        /// <value>The start date time of a time period.</value>
+        [DataMember(Name="FromDateTime")]
+        public  FromDateTime { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -34,6 +41,7 @@ namespace IO.Swagger.Models
         {
             var sb = new StringBuilder();
             sb.Append("class ContactEmailHistory {\n");
+            sb.Append("  FromDateTime: ").Append(FromDateTime).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -69,7 +77,12 @@ namespace IO.Swagger.Models
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
-            return false;
+            return 
+                (
+                    FromDateTime == other.FromDateTime ||
+                    FromDateTime != null &&
+                    FromDateTime.Equals(other.FromDateTime)
+                );
         }
 
         /// <summary>
@@ -82,6 +95,8 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
+                    if (FromDateTime != null)
+                    hashCode = hashCode * 59 + FromDateTime.GetHashCode();
                 return hashCode;
             }
         }

@@ -555,10 +555,6 @@
           }
         }, {
           "$ref" : "#/components/schemas/FromDateTime"
-        }, {
-          "$ref" : "#/components/schemas/ToDateTime"
-        }, {
-          "$ref" : "#/components/schemas/LastUpdatedBy"
         } ]
       },
       "ContactEmailUsageItem" : {
@@ -595,7 +591,9 @@
           "Id" : 1,
           "LastUpdated" : "2000-01-23T04:56:07.000+00:00",
           "EmailAddress" : "gielisg@selectsoftware.com.au",
-          "FromDateTime" : "2000-01-23T04:56:07.000+00:00",
+          "FromDateTime" : {
+            "FromDateTime" : "2019-02-01 00:00:00"
+          },
           "EmailTypes" : [ {
             "Code" : "HE",
             "Name" : "Home Email"
@@ -632,7 +630,9 @@
             "Id" : 1,
             "LastUpdated" : "2000-01-23T04:56:07.000+00:00",
             "EmailAddress" : "gielisg@selectsoftware.com.au",
-            "FromDateTime" : "2000-01-23T04:56:07.000+00:00",
+            "FromDateTime" : {
+              "FromDateTime" : "2019-02-01 00:00:00"
+            },
             "EmailTypes" : [ {
               "Code" : "HE",
               "Name" : "Home Email"
@@ -645,7 +645,9 @@
             "Id" : 1,
             "LastUpdated" : "2000-01-23T04:56:07.000+00:00",
             "EmailAddress" : "gielisg@selectsoftware.com.au",
-            "FromDateTime" : "2000-01-23T04:56:07.000+00:00",
+            "FromDateTime" : {
+              "FromDateTime" : "2019-02-01 00:00:00"
+            },
             "EmailTypes" : [ {
               "Code" : "HE",
               "Name" : "Home Email"
@@ -712,24 +714,27 @@
         }
       },
       "FromDateTime" : {
-        "type" : "string",
-        "description" : "The start date time of a time period.",
-        "format" : "date-time"
+        "type" : "object",
+        "properties" : {
+          "FromDateTime" : {
+            "description" : "The start date time of a time period.",
+            "format" : "date-time",
+            "example" : "2019-02-01 00:00:00"
+          }
+        },
+        "example" : {
+          "FromDateTime" : "2019-02-01 00:00:00"
+        }
       },
-      "ToDateTime" : {
+      "LastUpdatedDateTime" : {
         "type" : "string",
-        "description" : "The end date time of a time period.",
+        "description" : "The date the entity was last updated.",
         "format" : "date-time"
       },
       "LastUpdatedBy" : {
         "type" : "string",
         "description" : "The User that last updated the entity.",
         "example" : "4001304"
-      },
-      "LastUpdatedDateTime" : {
-        "type" : "string",
-        "description" : "The date the entity was last updated.",
-        "format" : "date-time"
       },
       "ContactCode" : {
         "type" : "string",
