@@ -528,47 +528,38 @@
         }
       },
       "ContactEmailHistory" : {
-        "properties" : {
-          "Id" : {
-            "type" : "integer",
-            "description" : "Id. of the Contact Email History item",
-            "example" : 1
-          },
-          "EmailTypeCode" : {
-            "type" : "string",
-            "example" : "HE"
-          },
-          "EmailType" : {
-            "maxLength" : 2,
-            "type" : "string",
-            "description" : "Name of the Email Type",
-            "example" : "Mobile"
-          },
-          "EmailAddress" : {
-            "type" : "string",
-            "description" : "The Email Address.",
-            "format" : "email",
-            "example" : "gielisg@selectsoftware.com.au"
-          },
-          "FromDateTime" : {
-            "$ref" : "#/components/schemas/FromDateTime"
-          },
-          "ToDateTime" : {
-            "$ref" : "#/components/schemas/ToDateTime"
-          },
-          "UpdatedBy" : {
-            "$ref" : "#/components/schemas/LastUpdatedBy"
+        "allOf" : [ {
+          "type" : "object",
+          "properties" : {
+            "Id" : {
+              "type" : "integer",
+              "description" : "Id. of the Contact Email History item",
+              "example" : 1
+            },
+            "EmailTypeCode" : {
+              "type" : "string",
+              "example" : "HE"
+            },
+            "EmailType" : {
+              "maxLength" : 2,
+              "type" : "string",
+              "description" : "Name of the Email Type",
+              "example" : "Mobile"
+            },
+            "EmailAddress" : {
+              "type" : "string",
+              "description" : "The Email Address.",
+              "format" : "email",
+              "example" : "gielisg@selectsoftware.com.au"
+            }
           }
-        },
-        "example" : {
-          "UpdatedBy" : "4001304",
-          "EmailType" : "Mobile",
-          "Id" : 1,
-          "ToDateTime" : "2000-01-23T04:56:07.000+00:00",
-          "EmailTypeCode" : "HE",
-          "EmailAddress" : "gielisg@selectsoftware.com.au",
-          "FromDateTime" : "2000-01-23T04:56:07.000+00:00"
-        }
+        }, {
+          "$ref" : "#/components/schemas/FromDateTime"
+        }, {
+          "$ref" : "#/components/schemas/ToDateTime"
+        }, {
+          "$ref" : "#/components/schemas/LastUpdatedBy"
+        } ]
       },
       "ContactEmailUsageItem" : {
         "properties" : {

@@ -27,51 +27,6 @@ namespace IO.Swagger.Models
     public partial class ContactEmailHistory : IEquatable<ContactEmailHistory>
     { 
         /// <summary>
-        /// Id. of the Contact Email History item
-        /// </summary>
-        /// <value>Id. of the Contact Email History item</value>
-        [DataMember(Name="Id")]
-        public int? Id { get; set; }
-
-        /// <summary>
-        /// Gets or Sets EmailTypeCode
-        /// </summary>
-        [DataMember(Name="EmailTypeCode")]
-        public string EmailTypeCode { get; set; }
-
-        /// <summary>
-        /// Name of the Email Type
-        /// </summary>
-        /// <value>Name of the Email Type</value>
-        [DataMember(Name="EmailType")]
-        public string EmailType { get; set; }
-
-        /// <summary>
-        /// The Email Address.
-        /// </summary>
-        /// <value>The Email Address.</value>
-        [DataMember(Name="EmailAddress")]
-        public string EmailAddress { get; set; }
-
-        /// <summary>
-        /// Gets or Sets FromDateTime
-        /// </summary>
-        [DataMember(Name="FromDateTime")]
-        public FromDateTime FromDateTime { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ToDateTime
-        /// </summary>
-        [DataMember(Name="ToDateTime")]
-        public ToDateTime ToDateTime { get; set; }
-
-        /// <summary>
-        /// Gets or Sets UpdatedBy
-        /// </summary>
-        [DataMember(Name="UpdatedBy")]
-        public LastUpdatedBy UpdatedBy { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -79,13 +34,6 @@ namespace IO.Swagger.Models
         {
             var sb = new StringBuilder();
             sb.Append("class ContactEmailHistory {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  EmailTypeCode: ").Append(EmailTypeCode).Append("\n");
-            sb.Append("  EmailType: ").Append(EmailType).Append("\n");
-            sb.Append("  EmailAddress: ").Append(EmailAddress).Append("\n");
-            sb.Append("  FromDateTime: ").Append(FromDateTime).Append("\n");
-            sb.Append("  ToDateTime: ").Append(ToDateTime).Append("\n");
-            sb.Append("  UpdatedBy: ").Append(UpdatedBy).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -121,42 +69,7 @@ namespace IO.Swagger.Models
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
-            return 
-                (
-                    Id == other.Id ||
-                    Id != null &&
-                    Id.Equals(other.Id)
-                ) && 
-                (
-                    EmailTypeCode == other.EmailTypeCode ||
-                    EmailTypeCode != null &&
-                    EmailTypeCode.Equals(other.EmailTypeCode)
-                ) && 
-                (
-                    EmailType == other.EmailType ||
-                    EmailType != null &&
-                    EmailType.Equals(other.EmailType)
-                ) && 
-                (
-                    EmailAddress == other.EmailAddress ||
-                    EmailAddress != null &&
-                    EmailAddress.Equals(other.EmailAddress)
-                ) && 
-                (
-                    FromDateTime == other.FromDateTime ||
-                    FromDateTime != null &&
-                    FromDateTime.Equals(other.FromDateTime)
-                ) && 
-                (
-                    ToDateTime == other.ToDateTime ||
-                    ToDateTime != null &&
-                    ToDateTime.Equals(other.ToDateTime)
-                ) && 
-                (
-                    UpdatedBy == other.UpdatedBy ||
-                    UpdatedBy != null &&
-                    UpdatedBy.Equals(other.UpdatedBy)
-                );
+            return false;
         }
 
         /// <summary>
@@ -169,20 +82,6 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (Id != null)
-                    hashCode = hashCode * 59 + Id.GetHashCode();
-                    if (EmailTypeCode != null)
-                    hashCode = hashCode * 59 + EmailTypeCode.GetHashCode();
-                    if (EmailType != null)
-                    hashCode = hashCode * 59 + EmailType.GetHashCode();
-                    if (EmailAddress != null)
-                    hashCode = hashCode * 59 + EmailAddress.GetHashCode();
-                    if (FromDateTime != null)
-                    hashCode = hashCode * 59 + FromDateTime.GetHashCode();
-                    if (ToDateTime != null)
-                    hashCode = hashCode * 59 + ToDateTime.GetHashCode();
-                    if (UpdatedBy != null)
-                    hashCode = hashCode * 59 + UpdatedBy.GetHashCode();
                 return hashCode;
             }
         }
