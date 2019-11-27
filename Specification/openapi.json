@@ -543,9 +543,11 @@
             }
           }
         }, {
-          "$ref" : "#/components/schemas/DataObject"
+          "$ref" : "#/components/schemas/FromDt"
         }, {
-          "$ref" : "#/components/schemas/MenuSimpleWebItem"
+          "$ref" : "#/components/schemas/ToDt"
+        }, {
+          "$ref" : "#/components/schemas/DataObject"
         } ]
       },
       "ContactEmailUsageItem" : {
@@ -568,7 +570,7 @@
             }
           },
           "FromDateTime" : {
-            "$ref" : "#/components/schemas/FromDateTime"
+            "$ref" : "#/components/schemas/FromDt"
           },
           "LastUpdated" : {
             "$ref" : "#/components/schemas/LastUpdatedDateTime"
@@ -647,6 +649,28 @@
           }
         }
       },
+      "FromDt" : {
+        "type" : "object",
+        "properties" : {
+          "FromDateTime" : {
+            "type" : "string",
+            "description" : "The start date time of a time period.",
+            "format" : "date-time"
+          }
+        },
+        "description" : "Describes a simple menu item for Web applications"
+      },
+      "ToDt" : {
+        "type" : "object",
+        "properties" : {
+          "FromDateTime" : {
+            "type" : "string",
+            "description" : "The end date time of a time period.",
+            "format" : "date-time"
+          }
+        },
+        "description" : "Describes a simple menu item for Web applications"
+      },
       "DataObject" : {
         "type" : "object",
         "properties" : {
@@ -671,42 +695,6 @@
             "example" : "Gordon Gielis gielisg"
           }
         }
-      },
-      "MenuSimpleWebItem" : {
-        "type" : "object",
-        "properties" : {
-          "Id" : {
-            "type" : "number",
-            "description" : "Unique identifier of the menu item",
-            "example" : 1001
-          },
-          "Caption" : {
-            "type" : "string",
-            "description" : "The text that will appear to the user for the menu item",
-            "example" : "Collections"
-          },
-          "Tooltip" : {
-            "type" : "string",
-            "description" : "A mouse-over tooltip for this menu item",
-            "example" : "Choose this to go to the Collection Run programs"
-          },
-          "Order" : {
-            "type" : "number",
-            "description" : "The order in which this menu item appears in the menu relative to the other menu items",
-            "example" : 1
-          },
-          "NavigationPath" : {
-            "type" : "string",
-            "description" : "The Resource to navigate to on selection of this menu item.",
-            "example" : "Collection/CollectionRunDashboard"
-          }
-        },
-        "description" : "Describes a simple menu item for Web applications"
-      },
-      "FromDateTime" : {
-        "type" : "string",
-        "description" : "The start date time of a time period.",
-        "format" : "date-time"
       },
       "LastUpdatedDateTime" : {
         "type" : "string",
