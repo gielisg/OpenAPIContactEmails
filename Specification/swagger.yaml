@@ -363,7 +363,7 @@ components:
             description: The Email Address.
             format: email
             example: gielisg@selectsoftware.com.au
-      - $ref: '#/components/schemas/FromDateTime'
+      - $ref: '#/components/schemas/FromDt'
       - $ref: '#/components/schemas/ToDateTime'
       - $ref: '#/components/schemas/DataObject'
     ContactEmailUsageItem:
@@ -435,10 +435,13 @@ components:
           type: string
           description: Additional error details
           example: Quantity parameter should be numeric
-    FromDateTime:
-      type: string
-      description: The start date time of a time period.
-      format: date-time
+    FromDt:
+      type: object
+      properties:
+        FromDateTime:
+          type: string
+          description: The start date time of a time period.
+          format: date-time
     ToDateTime:
       type: string
       description: The end date time of a time period.
@@ -469,6 +472,10 @@ components:
             is automatically updated by the database, data passed to the API in this
             property will be ignored.
           example: Gordon Gielis gielisg
+    FromDateTime:
+      type: string
+      description: The start date time of a time period.
+      format: date-time
     LastUpdatedDateTime:
       type: string
       description: The date the entity was last updated.

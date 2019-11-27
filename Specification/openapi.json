@@ -543,7 +543,7 @@
             }
           }
         }, {
-          "$ref" : "#/components/schemas/FromDateTime"
+          "$ref" : "#/components/schemas/FromDt"
         }, {
           "$ref" : "#/components/schemas/ToDateTime"
         }, {
@@ -649,10 +649,15 @@
           }
         }
       },
-      "FromDateTime" : {
-        "type" : "string",
-        "description" : "The start date time of a time period.",
-        "format" : "date-time"
+      "FromDt" : {
+        "type" : "object",
+        "properties" : {
+          "FromDateTime" : {
+            "type" : "string",
+            "description" : "The start date time of a time period.",
+            "format" : "date-time"
+          }
+        }
       },
       "ToDateTime" : {
         "type" : "string",
@@ -683,6 +688,11 @@
             "example" : "Gordon Gielis gielisg"
           }
         }
+      },
+      "FromDateTime" : {
+        "type" : "string",
+        "description" : "The start date time of a time period.",
+        "format" : "date-time"
       },
       "LastUpdatedDateTime" : {
         "type" : "string",
