@@ -21,10 +21,10 @@ using Newtonsoft.Json;
 namespace IO.Swagger.Models
 { 
     /// <summary>
-    /// The start date time of a time period.
+    /// The end date time of a time period.
     /// </summary>
     [DataContract]
-    public partial class FromDateTime : IEquatable<FromDateTime>
+    public partial class ToDateTime : IEquatable<ToDateTime>
     { 
         /// <summary>
         /// Returns the string presentation of the object
@@ -33,7 +33,7 @@ namespace IO.Swagger.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class FromDateTime {\n");
+            sb.Append("class ToDateTime {\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -56,15 +56,15 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((FromDateTime)obj);
+            return obj.GetType() == GetType() && Equals((ToDateTime)obj);
         }
 
         /// <summary>
-        /// Returns true if FromDateTime instances are equal
+        /// Returns true if ToDateTime instances are equal
         /// </summary>
-        /// <param name="other">Instance of FromDateTime to be compared</param>
+        /// <param name="other">Instance of ToDateTime to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FromDateTime other)
+        public bool Equals(ToDateTime other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -89,12 +89,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(FromDateTime left, FromDateTime right)
+        public static bool operator ==(ToDateTime left, ToDateTime right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(FromDateTime left, FromDateTime right)
+        public static bool operator !=(ToDateTime left, ToDateTime right)
         {
             return !Equals(left, right);
         }
