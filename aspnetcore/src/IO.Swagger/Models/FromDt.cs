@@ -21,7 +21,7 @@ using Newtonsoft.Json;
 namespace IO.Swagger.Models
 { 
     /// <summary>
-    /// 
+    /// The start date time of a time period.
     /// </summary>
     [DataContract]
     public partial class FromDt : IEquatable<FromDt>
