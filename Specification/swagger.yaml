@@ -343,29 +343,48 @@ components:
           description: Name of the Email Type
           example: Home Email
     ContactEmailHistory:
-      allOf:
-      - type: object
-        properties:
-          Id:
-            type: integer
-            description: Id. of the Contact Email History item
-            example: 1
-          EmailTypeCode:
-            type: string
-            example: HE
-          EmailType:
-            maxLength: 2
-            type: string
-            description: Name of the Email Type
-            example: Mobile
-          EmailAddress:
-            type: string
-            description: The Email Address.
-            format: email
-            example: gielisg@selectsoftware.com.au
-      - $ref: '#/components/schemas/FromDt'
-      - $ref: '#/components/schemas/ToDt'
-      - $ref: '#/components/schemas/DataObject'
+      properties:
+        Id:
+          type: integer
+          description: Id. of the Contact Email History item
+          example: 1
+        EmailTypeCode:
+          type: string
+          example: HE
+        EmailType:
+          maxLength: 2
+          type: string
+          description: Name of the Email Type
+          example: Mobile
+        EmailAddress:
+          type: string
+          description: The Email Address.
+          format: email
+          example: gielisg@selectsoftware.com.au
+        FromDateTime:
+          type: string
+          description: The start date time of a time period.
+          format: date-time
+        ToDateTime:
+          type: string
+          description: The end date time of a time period.
+          format: date-time
+        CreatedBy:
+          type: string
+          description: The User that created the entity.
+          example: "4001304"
+        CreatedDateTime:
+          type: string
+          description: The date the entity was created.
+          format: date-time
+        LastUpdatedBy:
+          type: string
+          description: The User that last updated the entity.
+          example: "4001304"
+        LastUpdatedDateTime:
+          type: string
+          description: The date the entity was last updated.
+          format: date-time
     ContactEmailUsageItem:
       properties:
         Id:
@@ -443,40 +462,6 @@ components:
           description: The start date time of a time period.
           format: date-time
       description: Describes a simple menu item for Web applications
-    ToDt:
-      type: object
-      properties:
-        FromDateTime:
-          type: string
-          description: The end date time of a time period.
-          format: date-time
-      description: Describes a simple menu item for Web applications
-    DataObject:
-      type: object
-      properties:
-        Created:
-          type: string
-          description: The Datetime the entity was created in the database. This is
-            automatically updated by the database, data passed to the API in this
-            property will be ignored.
-          format: date-time
-        CreatedBy:
-          type: string
-          description: The user who created this entity. This is automatically updated
-            by the database, data passed to the API in this property will be ignored.
-          example: Gordon Gielis gielisg
-        LastUpdated:
-          type: string
-          description: The date and time the object was last updated in the database.
-            This is automatically updated by the database, data passed to the API
-            in this property will be ignored.
-          format: date-time
-        UpdatedBy:
-          type: string
-          description: The user who performed the last update in the database. This
-            is automatically updated by the database, data passed to the API in this
-            property will be ignored.
-          example: Gordon Gielis gielisg
     LastUpdatedDateTime:
       type: string
       description: The date the entity was last updated.
