@@ -21,39 +21,11 @@ using Newtonsoft.Json;
 namespace IO.Swagger.Models
 { 
     /// <summary>
-    /// 
+    /// Describes a simple menu item for Web applications
     /// </summary>
     [DataContract]
-    public partial class ContactEmailHistory : IEquatable<ContactEmailHistory>
+    public partial class MenuSimpleWebItem : IEquatable<MenuSimpleWebItem>
     { 
-        /// <summary>
-        /// The Datetime the entity was created in the database. This is automatically updated by the database, data passed to the API in this property will be ignored.
-        /// </summary>
-        /// <value>The Datetime the entity was created in the database. This is automatically updated by the database, data passed to the API in this property will be ignored.</value>
-        [DataMember(Name="Created")]
-        public DateTime? Created { get; set; }
-
-        /// <summary>
-        /// The user who created this entity. This is automatically updated by the database, data passed to the API in this property will be ignored.
-        /// </summary>
-        /// <value>The user who created this entity. This is automatically updated by the database, data passed to the API in this property will be ignored.</value>
-        [DataMember(Name="CreatedBy")]
-        public string CreatedBy { get; set; }
-
-        /// <summary>
-        /// The date and time the object was last updated in the database. This is automatically updated by the database, data passed to the API in this property will be ignored.
-        /// </summary>
-        /// <value>The date and time the object was last updated in the database. This is automatically updated by the database, data passed to the API in this property will be ignored.</value>
-        [DataMember(Name="LastUpdated")]
-        public DateTime? LastUpdated { get; set; }
-
-        /// <summary>
-        /// The user who performed the last update in the database. This is automatically updated by the database, data passed to the API in this property will be ignored.
-        /// </summary>
-        /// <value>The user who performed the last update in the database. This is automatically updated by the database, data passed to the API in this property will be ignored.</value>
-        [DataMember(Name="UpdatedBy")]
-        public string UpdatedBy { get; set; }
-
         /// <summary>
         /// Unique identifier of the menu item
         /// </summary>
@@ -96,11 +68,7 @@ namespace IO.Swagger.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ContactEmailHistory {\n");
-            sb.Append("  Created: ").Append(Created).Append("\n");
-            sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
-            sb.Append("  LastUpdated: ").Append(LastUpdated).Append("\n");
-            sb.Append("  UpdatedBy: ").Append(UpdatedBy).Append("\n");
+            sb.Append("class MenuSimpleWebItem {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Caption: ").Append(Caption).Append("\n");
             sb.Append("  Tooltip: ").Append(Tooltip).Append("\n");
@@ -128,40 +96,20 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((ContactEmailHistory)obj);
+            return obj.GetType() == GetType() && Equals((MenuSimpleWebItem)obj);
         }
 
         /// <summary>
-        /// Returns true if ContactEmailHistory instances are equal
+        /// Returns true if MenuSimpleWebItem instances are equal
         /// </summary>
-        /// <param name="other">Instance of ContactEmailHistory to be compared</param>
+        /// <param name="other">Instance of MenuSimpleWebItem to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ContactEmailHistory other)
+        public bool Equals(MenuSimpleWebItem other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
             return 
-                (
-                    Created == other.Created ||
-                    Created != null &&
-                    Created.Equals(other.Created)
-                ) && 
-                (
-                    CreatedBy == other.CreatedBy ||
-                    CreatedBy != null &&
-                    CreatedBy.Equals(other.CreatedBy)
-                ) && 
-                (
-                    LastUpdated == other.LastUpdated ||
-                    LastUpdated != null &&
-                    LastUpdated.Equals(other.LastUpdated)
-                ) && 
-                (
-                    UpdatedBy == other.UpdatedBy ||
-                    UpdatedBy != null &&
-                    UpdatedBy.Equals(other.UpdatedBy)
-                ) && 
                 (
                     Id == other.Id ||
                     Id != null &&
@@ -199,14 +147,6 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (Created != null)
-                    hashCode = hashCode * 59 + Created.GetHashCode();
-                    if (CreatedBy != null)
-                    hashCode = hashCode * 59 + CreatedBy.GetHashCode();
-                    if (LastUpdated != null)
-                    hashCode = hashCode * 59 + LastUpdated.GetHashCode();
-                    if (UpdatedBy != null)
-                    hashCode = hashCode * 59 + UpdatedBy.GetHashCode();
                     if (Id != null)
                     hashCode = hashCode * 59 + Id.GetHashCode();
                     if (Caption != null)
@@ -224,12 +164,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(ContactEmailHistory left, ContactEmailHistory right)
+        public static bool operator ==(MenuSimpleWebItem left, MenuSimpleWebItem right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(ContactEmailHistory left, ContactEmailHistory right)
+        public static bool operator !=(MenuSimpleWebItem left, MenuSimpleWebItem right)
         {
             return !Equals(left, right);
         }
