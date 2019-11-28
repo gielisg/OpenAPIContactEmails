@@ -328,6 +328,29 @@ components:
           type: string
           description: Name of the Contact Email Type.
           example: Home Email
+        Created:
+          type: string
+          description: The Datetime the entity was created in the database. This is
+            automatically updated by the database, data passed to the API in this
+            property will be ignored.
+          format: date-time
+        CreatedBy:
+          type: string
+          description: The user who created this entity. This is automatically updated
+            by the database, data passed to the API in this property will be ignored.
+          example: Gordon Gielis gielisg
+        LastUpdated:
+          type: string
+          description: The date and time the object was last updated in the database.
+            This is automatically updated by the database, data passed to the API
+            in this property will be ignored.
+          format: date-time
+        UpdatedBy:
+          type: string
+          description: The user who performed the last update in the database. This
+            is automatically updated by the database, data passed to the API in this
+            property will be ignored.
+          example: Gordon Gielis
     ContactEmailTypeCode:
       properties:
         Code:
@@ -444,7 +467,9 @@ components:
     ContactEmailUsageUpdate:
       properties:
         ContactCode:
-          $ref: '#/components/schemas/ContactCode'
+          type: string
+          description: The unique code of the Contact.
+          example: "4001304"
         ContactEmailUsage:
           type: array
           items:
@@ -475,10 +500,6 @@ components:
           type: string
           description: Additional error details
           example: Quantity parameter should be numeric
-    ContactCode:
-      type: string
-      description: The unique code of the Contact.
-      example: "4001304"
     inline_response_200:
       type: object
       properties:
