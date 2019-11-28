@@ -24,14 +24,62 @@ namespace IO.Swagger.Models
     /// 
     /// </summary>
     [DataContract]
-    public partial class ContactEmailUsageItem : Test, IEquatable<ContactEmailUsageItem>
+    public partial class ContactEmailUsageItem : IEquatable<ContactEmailUsageItem>
     { 
+        /// <summary>
+        /// Id. of the Contact Email item
+        /// </summary>
+        /// <value>Id. of the Contact Email item</value>
+        [DataMember(Name="Id")]
+        public int? Id { get; set; }
+
+        /// <summary>
+        /// The Email Address.
+        /// </summary>
+        /// <value>The Email Address.</value>
+        [DataMember(Name="EmailAddress")]
+        public string EmailAddress { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EmailTypes
+        /// </summary>
+        [DataMember(Name="EmailTypes")]
+        public List<ContactEmailType> EmailTypes { get; set; }
+
         /// <summary>
         /// The start date time of a time period.
         /// </summary>
         /// <value>The start date time of a time period.</value>
         [DataMember(Name="FromDateTime")]
         public DateTime? FromDateTime { get; set; }
+
+        /// <summary>
+        /// The Datetime the entity was created in the database. This is automatically updated by the database, data passed to the API in this property will be ignored.
+        /// </summary>
+        /// <value>The Datetime the entity was created in the database. This is automatically updated by the database, data passed to the API in this property will be ignored.</value>
+        [DataMember(Name="Created")]
+        public DateTime? Created { get; set; }
+
+        /// <summary>
+        /// The user who created this entity. This is automatically updated by the database, data passed to the API in this property will be ignored.
+        /// </summary>
+        /// <value>The user who created this entity. This is automatically updated by the database, data passed to the API in this property will be ignored.</value>
+        [DataMember(Name="CreatedBy")]
+        public string CreatedBy { get; set; }
+
+        /// <summary>
+        /// The date and time the object was last updated in the database. This is automatically updated by the database, data passed to the API in this property will be ignored.
+        /// </summary>
+        /// <value>The date and time the object was last updated in the database. This is automatically updated by the database, data passed to the API in this property will be ignored.</value>
+        [DataMember(Name="LastUpdated")]
+        public DateTime? LastUpdated { get; set; }
+
+        /// <summary>
+        /// The user who performed the last update in the database. This is automatically updated by the database, data passed to the API in this property will be ignored.
+        /// </summary>
+        /// <value>The user who performed the last update in the database. This is automatically updated by the database, data passed to the API in this property will be ignored.</value>
+        [DataMember(Name="UpdatedBy")]
+        public string UpdatedBy { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -41,7 +89,14 @@ namespace IO.Swagger.Models
         {
             var sb = new StringBuilder();
             sb.Append("class ContactEmailUsageItem {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  EmailAddress: ").Append(EmailAddress).Append("\n");
+            sb.Append("  EmailTypes: ").Append(EmailTypes).Append("\n");
             sb.Append("  FromDateTime: ").Append(FromDateTime).Append("\n");
+            sb.Append("  Created: ").Append(Created).Append("\n");
+            sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
+            sb.Append("  LastUpdated: ").Append(LastUpdated).Append("\n");
+            sb.Append("  UpdatedBy: ").Append(UpdatedBy).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -50,7 +105,7 @@ namespace IO.Swagger.Models
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public  new string ToJson()
+        public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -79,9 +134,44 @@ namespace IO.Swagger.Models
 
             return 
                 (
+                    Id == other.Id ||
+                    Id != null &&
+                    Id.Equals(other.Id)
+                ) && 
+                (
+                    EmailAddress == other.EmailAddress ||
+                    EmailAddress != null &&
+                    EmailAddress.Equals(other.EmailAddress)
+                ) && 
+                (
+                    EmailTypes == other.EmailTypes ||
+                    EmailTypes != null &&
+                    EmailTypes.SequenceEqual(other.EmailTypes)
+                ) && 
+                (
                     FromDateTime == other.FromDateTime ||
                     FromDateTime != null &&
                     FromDateTime.Equals(other.FromDateTime)
+                ) && 
+                (
+                    Created == other.Created ||
+                    Created != null &&
+                    Created.Equals(other.Created)
+                ) && 
+                (
+                    CreatedBy == other.CreatedBy ||
+                    CreatedBy != null &&
+                    CreatedBy.Equals(other.CreatedBy)
+                ) && 
+                (
+                    LastUpdated == other.LastUpdated ||
+                    LastUpdated != null &&
+                    LastUpdated.Equals(other.LastUpdated)
+                ) && 
+                (
+                    UpdatedBy == other.UpdatedBy ||
+                    UpdatedBy != null &&
+                    UpdatedBy.Equals(other.UpdatedBy)
                 );
         }
 
@@ -95,8 +185,22 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
+                    if (Id != null)
+                    hashCode = hashCode * 59 + Id.GetHashCode();
+                    if (EmailAddress != null)
+                    hashCode = hashCode * 59 + EmailAddress.GetHashCode();
+                    if (EmailTypes != null)
+                    hashCode = hashCode * 59 + EmailTypes.GetHashCode();
                     if (FromDateTime != null)
                     hashCode = hashCode * 59 + FromDateTime.GetHashCode();
+                    if (Created != null)
+                    hashCode = hashCode * 59 + Created.GetHashCode();
+                    if (CreatedBy != null)
+                    hashCode = hashCode * 59 + CreatedBy.GetHashCode();
+                    if (LastUpdated != null)
+                    hashCode = hashCode * 59 + LastUpdated.GetHashCode();
+                    if (UpdatedBy != null)
+                    hashCode = hashCode * 59 + UpdatedBy.GetHashCode();
                 return hashCode;
             }
         }
