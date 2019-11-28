@@ -595,6 +595,17 @@
         }
       },
       "ContactEmailUsageItem" : {
+        "allOf" : [ {
+          "$ref" : "#/components/schemas/test"
+        }, {
+          "$ref" : "#/components/schemas/FromDt"
+        }, {
+          "$ref" : "#/components/schemas/LastUpdatedDateTime"
+        }, {
+          "$ref" : "#/components/schemas/LastUpdatedBy"
+        } ]
+      },
+      "test" : {
         "properties" : {
           "Id" : {
             "type" : "integer",
@@ -612,32 +623,7 @@
             "items" : {
               "$ref" : "#/components/schemas/ContactEmailType"
             }
-          },
-          "FromDateTime" : {
-            "$ref" : "#/components/schemas/FromDt"
-          },
-          "LastUpdated" : {
-            "$ref" : "#/components/schemas/LastUpdatedDateTime"
-          },
-          "UpdatedBy" : {
-            "$ref" : "#/components/schemas/LastUpdatedBy"
           }
-        },
-        "example" : {
-          "UpdatedBy" : "4001304",
-          "Id" : 1,
-          "LastUpdated" : "2000-01-23T04:56:07.000+00:00",
-          "EmailAddress" : "gielisg@selectsoftware.com.au",
-          "FromDateTime" : {
-            "FromDateTime" : "2000-01-23T04:56:07.000+00:00"
-          },
-          "EmailTypes" : [ {
-            "Code" : "HE",
-            "Name" : "Home Email"
-          }, {
-            "Code" : "HE",
-            "Name" : "Home Email"
-          } ]
         }
       },
       "ContactEmailUsage" : {
@@ -662,38 +648,14 @@
           }
         },
         "example" : {
-          "ContactEmailUsage" : [ {
-            "UpdatedBy" : "4001304",
-            "Id" : 1,
-            "LastUpdated" : "2000-01-23T04:56:07.000+00:00",
-            "EmailAddress" : "gielisg@selectsoftware.com.au",
-            "FromDateTime" : {
-              "FromDateTime" : "2000-01-23T04:56:07.000+00:00"
-            },
-            "EmailTypes" : [ {
-              "Code" : "HE",
-              "Name" : "Home Email"
-            }, {
-              "Code" : "HE",
-              "Name" : "Home Email"
-            } ]
+          "ContactEmailUsage" : [ "", "" ],
+          "ContactEmailTypes" : [ {
+            "Code" : "HE",
+            "Name" : "Home Email"
           }, {
-            "UpdatedBy" : "4001304",
-            "Id" : 1,
-            "LastUpdated" : "2000-01-23T04:56:07.000+00:00",
-            "EmailAddress" : "gielisg@selectsoftware.com.au",
-            "FromDateTime" : {
-              "FromDateTime" : "2000-01-23T04:56:07.000+00:00"
-            },
-            "EmailTypes" : [ {
-              "Code" : "HE",
-              "Name" : "Home Email"
-            }, {
-              "Code" : "HE",
-              "Name" : "Home Email"
-            } ]
+            "Code" : "HE",
+            "Name" : "Home Email"
           } ],
-          "ContactEmailTypes" : [ null, null ],
           "ContactEmailMandatoryRules" : [ {
             "Type" : "Home Email",
             "TypeCode" : "HE"
@@ -759,10 +721,7 @@
             "format" : "date-time"
           }
         },
-        "description" : "Describes a simple menu item for Web applications",
-        "example" : {
-          "FromDateTime" : "2000-01-23T04:56:07.000+00:00"
-        }
+        "description" : "Describes a simple menu item for Web applications"
       },
       "LastUpdatedDateTime" : {
         "type" : "string",

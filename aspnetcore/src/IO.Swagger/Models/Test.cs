@@ -24,14 +24,27 @@ namespace IO.Swagger.Models
     /// 
     /// </summary>
     [DataContract]
-    public partial class ContactEmailUsageItem : Test, IEquatable<ContactEmailUsageItem>
+    public partial class Test : IEquatable<Test>
     { 
         /// <summary>
-        /// The start date time of a time period.
+        /// Id. of the Contact Email item
         /// </summary>
-        /// <value>The start date time of a time period.</value>
-        [DataMember(Name="FromDateTime")]
-        public DateTime? FromDateTime { get; set; }
+        /// <value>Id. of the Contact Email item</value>
+        [DataMember(Name="Id")]
+        public int? Id { get; set; }
+
+        /// <summary>
+        /// The Email Address.
+        /// </summary>
+        /// <value>The Email Address.</value>
+        [DataMember(Name="EmailAddress")]
+        public string EmailAddress { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EmailTypes
+        /// </summary>
+        [DataMember(Name="EmailTypes")]
+        public List<ContactEmailType> EmailTypes { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -40,8 +53,10 @@ namespace IO.Swagger.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ContactEmailUsageItem {\n");
-            sb.Append("  FromDateTime: ").Append(FromDateTime).Append("\n");
+            sb.Append("class Test {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  EmailAddress: ").Append(EmailAddress).Append("\n");
+            sb.Append("  EmailTypes: ").Append(EmailTypes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -50,7 +65,7 @@ namespace IO.Swagger.Models
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public  new string ToJson()
+        public string ToJson()
         {
             return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
@@ -64,24 +79,34 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((ContactEmailUsageItem)obj);
+            return obj.GetType() == GetType() && Equals((Test)obj);
         }
 
         /// <summary>
-        /// Returns true if ContactEmailUsageItem instances are equal
+        /// Returns true if Test instances are equal
         /// </summary>
-        /// <param name="other">Instance of ContactEmailUsageItem to be compared</param>
+        /// <param name="other">Instance of Test to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ContactEmailUsageItem other)
+        public bool Equals(Test other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
             return 
                 (
-                    FromDateTime == other.FromDateTime ||
-                    FromDateTime != null &&
-                    FromDateTime.Equals(other.FromDateTime)
+                    Id == other.Id ||
+                    Id != null &&
+                    Id.Equals(other.Id)
+                ) && 
+                (
+                    EmailAddress == other.EmailAddress ||
+                    EmailAddress != null &&
+                    EmailAddress.Equals(other.EmailAddress)
+                ) && 
+                (
+                    EmailTypes == other.EmailTypes ||
+                    EmailTypes != null &&
+                    EmailTypes.SequenceEqual(other.EmailTypes)
                 );
         }
 
@@ -95,8 +120,12 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (FromDateTime != null)
-                    hashCode = hashCode * 59 + FromDateTime.GetHashCode();
+                    if (Id != null)
+                    hashCode = hashCode * 59 + Id.GetHashCode();
+                    if (EmailAddress != null)
+                    hashCode = hashCode * 59 + EmailAddress.GetHashCode();
+                    if (EmailTypes != null)
+                    hashCode = hashCode * 59 + EmailTypes.GetHashCode();
                 return hashCode;
             }
         }
@@ -104,12 +133,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(ContactEmailUsageItem left, ContactEmailUsageItem right)
+        public static bool operator ==(Test left, Test right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(ContactEmailUsageItem left, ContactEmailUsageItem right)
+        public static bool operator !=(Test left, Test right)
         {
             return !Equals(left, right);
         }
