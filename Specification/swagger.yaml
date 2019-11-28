@@ -386,6 +386,12 @@ components:
           description: The date the entity was last updated.
           format: date-time
     ContactEmailUsageItem:
+      allOf:
+      - $ref: '#/components/schemas/test'
+      - $ref: '#/components/schemas/FromDt'
+      - $ref: '#/components/schemas/LastUpdatedDateTime'
+      - $ref: '#/components/schemas/LastUpdatedBy'
+    test:
       properties:
         Id:
           type: integer
@@ -400,12 +406,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ContactEmailType'
-        FromDateTime:
-          $ref: '#/components/schemas/FromDt'
-        LastUpdated:
-          $ref: '#/components/schemas/LastUpdatedDateTime'
-        UpdatedBy:
-          $ref: '#/components/schemas/LastUpdatedBy'
     ContactEmailUsage:
       properties:
         ContactEmailUsage:
