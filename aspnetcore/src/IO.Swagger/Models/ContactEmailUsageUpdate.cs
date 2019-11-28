@@ -27,10 +27,11 @@ namespace IO.Swagger.Models
     public partial class ContactEmailUsageUpdate : IEquatable<ContactEmailUsageUpdate>
     { 
         /// <summary>
-        /// Gets or Sets ContactCode
+        /// The unique code of the Contact.
         /// </summary>
+        /// <value>The unique code of the Contact.</value>
         [DataMember(Name="ContactCode")]
-        public ContactCode ContactCode { get; set; }
+        public string ContactCode { get; set; }
 
         /// <summary>
         /// Gets or Sets ContactEmailUsage

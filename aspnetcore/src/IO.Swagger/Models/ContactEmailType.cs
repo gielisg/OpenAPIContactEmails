@@ -40,6 +40,34 @@ namespace IO.Swagger.Models
         public string Name { get; set; }
 
         /// <summary>
+        /// The Datetime the entity was created in the database. This is automatically updated by the database, data passed to the API in this property will be ignored.
+        /// </summary>
+        /// <value>The Datetime the entity was created in the database. This is automatically updated by the database, data passed to the API in this property will be ignored.</value>
+        [DataMember(Name="Created")]
+        public DateTime? Created { get; set; }
+
+        /// <summary>
+        /// The user who created this entity. This is automatically updated by the database, data passed to the API in this property will be ignored.
+        /// </summary>
+        /// <value>The user who created this entity. This is automatically updated by the database, data passed to the API in this property will be ignored.</value>
+        [DataMember(Name="CreatedBy")]
+        public string CreatedBy { get; set; }
+
+        /// <summary>
+        /// The date and time the object was last updated in the database. This is automatically updated by the database, data passed to the API in this property will be ignored.
+        /// </summary>
+        /// <value>The date and time the object was last updated in the database. This is automatically updated by the database, data passed to the API in this property will be ignored.</value>
+        [DataMember(Name="LastUpdated")]
+        public DateTime? LastUpdated { get; set; }
+
+        /// <summary>
+        /// The user who performed the last update in the database. This is automatically updated by the database, data passed to the API in this property will be ignored.
+        /// </summary>
+        /// <value>The user who performed the last update in the database. This is automatically updated by the database, data passed to the API in this property will be ignored.</value>
+        [DataMember(Name="UpdatedBy")]
+        public string UpdatedBy { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -49,6 +77,10 @@ namespace IO.Swagger.Models
             sb.Append("class ContactEmailType {\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Created: ").Append(Created).Append("\n");
+            sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
+            sb.Append("  LastUpdated: ").Append(LastUpdated).Append("\n");
+            sb.Append("  UpdatedBy: ").Append(UpdatedBy).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -94,6 +126,26 @@ namespace IO.Swagger.Models
                     Name == other.Name ||
                     Name != null &&
                     Name.Equals(other.Name)
+                ) && 
+                (
+                    Created == other.Created ||
+                    Created != null &&
+                    Created.Equals(other.Created)
+                ) && 
+                (
+                    CreatedBy == other.CreatedBy ||
+                    CreatedBy != null &&
+                    CreatedBy.Equals(other.CreatedBy)
+                ) && 
+                (
+                    LastUpdated == other.LastUpdated ||
+                    LastUpdated != null &&
+                    LastUpdated.Equals(other.LastUpdated)
+                ) && 
+                (
+                    UpdatedBy == other.UpdatedBy ||
+                    UpdatedBy != null &&
+                    UpdatedBy.Equals(other.UpdatedBy)
                 );
         }
 
@@ -111,6 +163,14 @@ namespace IO.Swagger.Models
                     hashCode = hashCode * 59 + Code.GetHashCode();
                     if (Name != null)
                     hashCode = hashCode * 59 + Name.GetHashCode();
+                    if (Created != null)
+                    hashCode = hashCode * 59 + Created.GetHashCode();
+                    if (CreatedBy != null)
+                    hashCode = hashCode * 59 + CreatedBy.GetHashCode();
+                    if (LastUpdated != null)
+                    hashCode = hashCode * 59 + LastUpdated.GetHashCode();
+                    if (UpdatedBy != null)
+                    hashCode = hashCode * 59 + UpdatedBy.GetHashCode();
                 return hashCode;
             }
         }

@@ -495,11 +495,35 @@
             "type" : "string",
             "description" : "Name of the Contact Email Type.",
             "example" : "Home Email"
+          },
+          "Created" : {
+            "type" : "string",
+            "description" : "The Datetime the entity was created in the database. This is automatically updated by the database, data passed to the API in this property will be ignored.",
+            "format" : "date-time"
+          },
+          "CreatedBy" : {
+            "type" : "string",
+            "description" : "The user who created this entity. This is automatically updated by the database, data passed to the API in this property will be ignored.",
+            "example" : "Gordon Gielis gielisg"
+          },
+          "LastUpdated" : {
+            "type" : "string",
+            "description" : "The date and time the object was last updated in the database. This is automatically updated by the database, data passed to the API in this property will be ignored.",
+            "format" : "date-time"
+          },
+          "UpdatedBy" : {
+            "type" : "string",
+            "description" : "The user who performed the last update in the database. This is automatically updated by the database, data passed to the API in this property will be ignored.",
+            "example" : "Gordon Gielis"
           }
         },
         "example" : {
+          "UpdatedBy" : "Gordon Gielis",
+          "CreatedBy" : "Gordon Gielis gielisg",
+          "LastUpdated" : "2000-01-23T04:56:07.000+00:00",
           "Code" : "HE",
-          "Name" : "Home Email"
+          "Name" : "Home Email",
+          "Created" : "2000-01-23T04:56:07.000+00:00"
         }
       },
       "ContactEmailTypeCode" : {
@@ -647,11 +671,19 @@
           "EmailAddress" : "gielisg@selectsoftware.com.au",
           "FromDateTime" : "2000-01-23T04:56:07.000+00:00",
           "EmailTypes" : [ {
+            "UpdatedBy" : "Gordon Gielis",
+            "CreatedBy" : "Gordon Gielis gielisg",
+            "LastUpdated" : "2000-01-23T04:56:07.000+00:00",
             "Code" : "HE",
-            "Name" : "Home Email"
+            "Name" : "Home Email",
+            "Created" : "2000-01-23T04:56:07.000+00:00"
           }, {
+            "UpdatedBy" : "Gordon Gielis",
+            "CreatedBy" : "Gordon Gielis gielisg",
+            "LastUpdated" : "2000-01-23T04:56:07.000+00:00",
             "Code" : "HE",
-            "Name" : "Home Email"
+            "Name" : "Home Email",
+            "Created" : "2000-01-23T04:56:07.000+00:00"
           } ],
           "Created" : "2000-01-23T04:56:07.000+00:00"
         }
@@ -686,11 +718,19 @@
             "EmailAddress" : "gielisg@selectsoftware.com.au",
             "FromDateTime" : "2000-01-23T04:56:07.000+00:00",
             "EmailTypes" : [ {
+              "UpdatedBy" : "Gordon Gielis",
+              "CreatedBy" : "Gordon Gielis gielisg",
+              "LastUpdated" : "2000-01-23T04:56:07.000+00:00",
               "Code" : "HE",
-              "Name" : "Home Email"
+              "Name" : "Home Email",
+              "Created" : "2000-01-23T04:56:07.000+00:00"
             }, {
+              "UpdatedBy" : "Gordon Gielis",
+              "CreatedBy" : "Gordon Gielis gielisg",
+              "LastUpdated" : "2000-01-23T04:56:07.000+00:00",
               "Code" : "HE",
-              "Name" : "Home Email"
+              "Name" : "Home Email",
+              "Created" : "2000-01-23T04:56:07.000+00:00"
             } ],
             "Created" : "2000-01-23T04:56:07.000+00:00"
           }, {
@@ -701,11 +741,19 @@
             "EmailAddress" : "gielisg@selectsoftware.com.au",
             "FromDateTime" : "2000-01-23T04:56:07.000+00:00",
             "EmailTypes" : [ {
+              "UpdatedBy" : "Gordon Gielis",
+              "CreatedBy" : "Gordon Gielis gielisg",
+              "LastUpdated" : "2000-01-23T04:56:07.000+00:00",
               "Code" : "HE",
-              "Name" : "Home Email"
+              "Name" : "Home Email",
+              "Created" : "2000-01-23T04:56:07.000+00:00"
             }, {
+              "UpdatedBy" : "Gordon Gielis",
+              "CreatedBy" : "Gordon Gielis gielisg",
+              "LastUpdated" : "2000-01-23T04:56:07.000+00:00",
               "Code" : "HE",
-              "Name" : "Home Email"
+              "Name" : "Home Email",
+              "Created" : "2000-01-23T04:56:07.000+00:00"
             } ],
             "Created" : "2000-01-23T04:56:07.000+00:00"
           } ],
@@ -722,7 +770,9 @@
       "ContactEmailUsageUpdate" : {
         "properties" : {
           "ContactCode" : {
-            "$ref" : "#/components/schemas/ContactCode"
+            "type" : "string",
+            "description" : "The unique code of the Contact.",
+            "example" : "4001304"
           },
           "ContactEmailUsage" : {
             "type" : "array",
@@ -765,11 +815,6 @@
             "example" : "Quantity parameter should be numeric"
           }
         }
-      },
-      "ContactCode" : {
-        "type" : "string",
-        "description" : "The unique code of the Contact.",
-        "example" : "4001304"
       },
       "inline_response_200" : {
         "type" : "object",
