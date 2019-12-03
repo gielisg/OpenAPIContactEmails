@@ -298,14 +298,6 @@
         "summary" : "Updates Email Usage for a Contact",
         "description" : "Updates Contact Email Usage.\n",
         "operationId" : "ContactEmailUsageUpdate",
-        "parameters" : [ {
-          "name" : "SessionKey",
-          "in" : "header",
-          "description" : "The SessionKey for the current Session.",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false
-        } ],
         "requestBody" : {
           "description" : "Contact Email Usage Update",
           "content" : {
@@ -391,13 +383,6 @@
         "description" : "List of Contact Email Usage.\n",
         "operationId" : "ContactEmailUsageHistory",
         "parameters" : [ {
-          "name" : "SessionKey",
-          "in" : "header",
-          "description" : "The SessionKey for the current Session.",
-          "required" : true,
-          "style" : "simple",
-          "explode" : false
-        }, {
           "name" : "ContactCode",
           "in" : "query",
           "description" : "Id. of the Contact",

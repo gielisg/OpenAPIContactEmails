@@ -133,7 +133,6 @@ namespace IO.Swagger.Controllers
         /// Provides history of Contact Email Usage items for a Contact
         /// </summary>
         /// <remarks>List of Contact Email Usage. </remarks>
-        /// <param name="">The SessionKey for the current Session.</param>
         /// <param name="">Id. of the Contact</param>
         /// <response code="200">Contact Email Usage History</response>
         /// <response code="204">Resource not found</response>
@@ -152,7 +151,7 @@ namespace IO.Swagger.Controllers
         [SwaggerResponse(statusCode: 401, type: typeof(Error), description: "Session has expired")]
         [SwaggerResponse(statusCode: 403, type: typeof(Error), description: "Authorisation error")]
         [SwaggerResponse(statusCode: 500, type: typeof(Error), description: "Internal server error")]
-        public virtual IActionResult ContactEmailUsageHistory([FromHeader][Required()] , [FromQuery][Required()] )
+        public virtual IActionResult ContactEmailUsageHistory([FromQuery][Required()] )
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(List<ContactEmailHistory>));
@@ -184,7 +183,6 @@ namespace IO.Swagger.Controllers
         /// Updates Email Usage for a Contact
         /// </summary>
         /// <remarks>Updates Contact Email Usage. </remarks>
-        /// <param name="">The SessionKey for the current Session.</param>
         /// <param name="body">Contact Email Usage Update</param>
         /// <response code="200">ContactEmailUsageUpdateResponse</response>
         /// <response code="204">Resource not found</response>
@@ -203,7 +201,7 @@ namespace IO.Swagger.Controllers
         [SwaggerResponse(statusCode: 401, type: typeof(Error), description: "Session has expired")]
         [SwaggerResponse(statusCode: 403, type: typeof(Error), description: "Authorisation error")]
         [SwaggerResponse(statusCode: 500, type: typeof(Error), description: "Internal server error")]
-        public virtual IActionResult ContactEmailUsageUpdate([FromHeader][Required()] , [FromBody]ContactEmailUsageUpdate body)
+        public virtual IActionResult ContactEmailUsageUpdate([FromBody]ContactEmailUsageUpdate body)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(InlineResponse200));
